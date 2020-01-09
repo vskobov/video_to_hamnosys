@@ -1,0 +1,1 @@
+((double_hand_symm:1)NON_OPT:1,(double_handshape:1)NON_OPT:1,((double_handposition:1)1_OPT:1,(empty:1)2_OPT:1)NON_OPT:1,((double_handlocation:1)1_OPT:1,(empty:1)2_OPT:1)NON_OPT:1,((double_action:1)1_OPT:1,(empty:1)2_OPT:1)NON_OPT:1);

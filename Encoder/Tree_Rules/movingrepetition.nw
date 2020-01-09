@@ -1,0 +1,1 @@
+((movementarrow:1)NON_OPT:1,(HamSeqbegin:1)NON_OPT:1,(repetition:1)NON_OPT:1,(movementarrow:1)NON_OPT:1,((((size:1)NON_OPT:1)1_OPT:1,((sizechangenonlinear:1)NON_OPT:1)2_OPT:1)1_OPT:1,((empty:1)NON_OPT:1)2_OPT:1)NON_OPT:1,(HamSeqend:1)NON_OPT:1);

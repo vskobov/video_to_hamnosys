@@ -1,0 +1,10 @@
+./Created_Trees/symm_tree.nw Number of leaves : 21
+./Created_Trees/handshape_tree.nw Number of leaves : 5763
+./Created_Trees/handpos_tree.nw Number of leaves : 92
+./Created_Trees/handlocation_tree.nw Number of leaves : 682
+./Created_Trees/d_symm_tree.nw Number of leaves : 20
+./Created_Trees/d_handshape_tree.nw Number of leaves : 11529
+./Created_Trees/d_handposition_tree.nw Number of leaves : 190
+./Created_Trees/d_handlocation_tree.nw Number of leaves : 1367
+./Created_Trees/d_action_tree.nw Number of leaves : 188475
+./Created_Trees/hamnosys_generation_tree.nw Number of leaves : 302380

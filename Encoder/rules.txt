@@ -1,0 +1,1610 @@
+
+        /1_OPTNON_OPT-HamTouch
+-pcontact
+        \2_OPTNON_OPT-HamClose
+
+       /NON_OPT-palmor
+      |
+      |            /NON_OPT-HamBetween
+      |       /1_OPT
+-palmor1NON_OPT    \NON_OPT-palmor
+      |      |
+      |       \2_OPTNON_OPT-empty
+      |
+      |       /1_OPTNON_OPT-HamOrirelative
+       \NON_OPT
+              \2_OPTNON_OPT-empty
+
+             /1_OPTNON_OPT-HamMovecross
+-movementcross
+             \2_OPTNON_OPT-HamMovex
+
+                               /1_OPTNON_OPT-handbendandthumb
+                        /NON_OPT
+                       |       \2_OPTNON_OPT-empty
+                       |
+                       |-NON_OPTNON_OPT-HamIndexfinger
+                       |
+                       |-NON_OPTNON_OPT-HamMiddlefinger
+                       |
+                       |-NON_OPTNON_OPT-HamRingfinger
+                       |
+                       |            /NON_OPT-HamIndexfinger
+                       |       /1_OPT
+                   /1_OPTNON_OPT    \NON_OPT-fingershape
+                  |    |      |
+                  |    |       \2_OPTNON_OPT-empty
+                  |    |
+                  |    |            /NON_OPT-HamMiddlefinger
+                  |    |       /1_OPT
+                  |    |-NON_OPT    \NON_OPT-fingershape
+                  |    |      |
+                  |    |       \2_OPTNON_OPT-empty
+                  |    |
+                  |    |            /NON_OPT-HamRingfinger
+                  |    |       /1_OPT
+                  |     \NON_OPT    \NON_OPT-fingershape
+                  |           |
+                  |            \2_OPTNON_OPT-empty
+                  |
+                  |            /1_OPTNON_OPT-handbendandthumb
+                  |     /NON_OPT
+                  |    |       \2_OPTNON_OPT-empty
+                  |    |
+                  |    |-NON_OPTNON_OPT-HamIndexfinger
+                  |    |
+                  |    |-NON_OPTNON_OPT-HamMiddlefinger
+                  |    |
+                  |    |-NON_OPTNON_OPT-HamPinky
+                  |    |
+                  |    |            /NON_OPT-HamIndexfinger
+                  |    |       /1_OPT
+                  |-1_OPTNON_OPT    \NON_OPT-fingershape
+                  |    |      |
+                  |    |       \2_OPTNON_OPT-empty
+                  |    |
+                  |    |            /NON_OPT-HamMiddlefinger
+                  |    |       /1_OPT
+                  |    |-NON_OPT    \NON_OPT-fingershape
+                  |    |      |
+                  |    |       \2_OPTNON_OPT-empty
+                  |    |
+                  |    |            /NON_OPT-HamPinky
+                  |    |       /1_OPT
+                  |     \NON_OPT    \NON_OPT-fingershape
+                  |           |
+-threefingerandshape           \2_OPTNON_OPT-empty
+                  |
+                  |            /1_OPTNON_OPT-handbendandthumb
+                  |     /NON_OPT
+                  |    |       \2_OPTNON_OPT-empty
+                  |    |
+                  |    |-NON_OPTNON_OPT-HamMiddlefinger
+                  |    |
+                  |    |-NON_OPTNON_OPT-HamRingfinger
+                  |    |
+                  |    |-NON_OPTNON_OPT-HamPinky
+                  |    |
+                  |    |            /NON_OPT-HamMiddlefinger
+                  |    |       /1_OPT
+                  |-2_OPTNON_OPT    \NON_OPT-fingershape
+                  |    |      |
+                  |    |       \2_OPTNON_OPT-empty
+                  |    |
+                  |    |            /NON_OPT-HamRingfinger
+                  |    |       /1_OPT
+                  |    |-NON_OPT    \NON_OPT-fingershape
+                  |    |      |
+                  |    |       \2_OPTNON_OPT-empty
+                  |    |
+                  |    |            /NON_OPT-HamPinky
+                  |    |       /1_OPT
+                  |     \NON_OPT    \NON_OPT-fingershape
+                  |           |
+                  |            \2_OPTNON_OPT-empty
+                  |
+                  |            /1_OPTNON_OPT-handbendandthumb
+                  |     /NON_OPT
+                  |    |       \2_OPTNON_OPT-empty
+                  |    |
+                  |    |-NON_OPTNON_OPT-HamIndexfinger
+                  |    |
+                  |    |-NON_OPTNON_OPT-HamRingfinger
+                  |    |
+                  |    |-NON_OPTNON_OPT-HamPinky
+                  |    |
+                  |    |            /NON_OPT-HamIndexfinger
+                  |    |       /1_OPT
+                   \3_OPTNON_OPT    \NON_OPT-fingershape
+                       |      |
+                       |       \2_OPTNON_OPT-empty
+                       |
+                       |            /NON_OPT-HamRingfinger
+                       |       /1_OPT
+                       |-NON_OPT    \NON_OPT-fingershape
+                       |      |
+                       |       \2_OPTNON_OPT-empty
+                       |
+                       |            /NON_OPT-HamPinky
+                       |       /1_OPT
+                        \NON_OPT    \NON_OPT-fingershape
+                              |
+                               \2_OPTNON_OPT-empty
+
+           /NON_OPT-HamReplace
+          |
+          |       /1_OPT-sizechange
+-replacementNON_OPT
+          |       \2_OPT-empty
+          |
+          |       /NON_OPT-basichandshape
+           \NON_OPT
+                 |       /1_OPTNON_OPT-hand_pos
+                  \NON_OPT
+                         \2_OPT-empty
+
+    /1_OPTNON_OPT-HamLrbeside
+-side
+    \2_OPTNON_OPT-HamLrat
+
+          /1_OPTNON_OPT-HamRepeatfromstart
+         |
+         |-2_OPTNON_OPT-HamRepeatfromstartseveral
+         |
+-repetition3_OPTNON_OPT-HamRepeatcontinue
+         |
+         |-4_OPTNON_OPT-HamRepeatcontinueseveral
+         |
+          \5_OPTNON_OPT-HamRepeatreverse
+
+       /1_OPTNON_OPT-handpart
+-lochand
+      |     /NON_OPT-digit
+       \2_OPT
+            \NON_OPT-fingerpart
+
+        /1_OPTNON_OPT-HamInterlock
+-ccontact
+        \2_OPTNON_OPT-HamCross
+
+         /NON_OPT-extfidirtok
+        |
+        |            /NON_OPT-HamBetween
+        |       /1_OPT
+-extfidir1NON_OPT    \NON_OPT-extfidirtok
+        |      |
+        |       \2_OPTNON_OPT-empty
+        |
+        |       /1_OPTNON_OPT-HamOrirelative
+         \NON_OPT
+                \2_OPTNON_OPT-empty
+
+           /NON_OPT-action1t
+-action1t_nl
+          |       /1_OPTNON_OPT-action1t
+           \NON_OPT
+                  \2_OPT-empty
+
+          /1_OPTNON_OPT-HamFingertip
+         |
+         |-2_OPTNON_OPT-HamFingernail
+         |
+         |-3_OPTNON_OPT-HamFingerpad
+-fingerpart
+         |-4_OPTNON_OPT-HamFingermidjoint
+         |
+         |-5_OPTNON_OPT-HamFingerbase
+         |
+          \6_OPTNON_OPT-HamFingerside
+
+            /NON_OPT-levelcomplexhand
+-locationhand
+           |       /1_OPTNON_OPT-contacthand
+            \NON_OPT
+                   \2_OPT-empty
+
+                    /NON_OPT-HamNeutralspace
+               /1_OPT
+              |    |       /1_OPTNON_OPT-HamArmextended
+              |     \NON_OPT
+-locationbodyarm           \2_OPTNON_OPT-empty
+              |
+              |-2_OPT-locationbody
+              |
+               \3_OPT-locationarm
+
+                          /NON_OPT-straightmovement
+                         |
+                         |       /1_OPTNON_OPT-size
+                         |-NON_OPT
+                     /1_OPT      \2_OPTNON_OPT-empty
+                    |    |
+                    |    |            /1_OPTNON_OPT-arckind
+                    |    |       /1_OPT
+                    |    |      |     \2_OPTNON_OPT-empty
+                    |     \NON_OPT
+                    |           |     /1_OPTNON_OPT-zigzag
+                    |            \2_OPT
+                    |                 \2_OPTNON_OPT-empty
+                    |
+                    |     /NON_OPT-circularmovement
+                    |    |
+                    |    |       /1_OPTNON_OPT-size
+                    |    |-NON_OPT
+                    |    |       \2_OPTNON_OPT-empty
+                    |    |
+                    |    |       /1_OPTNON_OPT-revolutions
+                    |-2_OPTNON_OPT
+                    |    |       \2_OPTNON_OPT-empty
+                    |    |
+                    |    |       /1_OPTNON_OPT-ellipse
+              /NON_OPT   |-NON_OPT
+             |      |    |       \2_OPTNON_OPT-empty
+             |      |    |
+             |      |    |       /1_OPTNON_OPT-sizechangenonlinear
+             |      |     \NON_OPT
+             |      |            \2_OPTNON_OPT-empty
+             |      |
+             |      |     /NON_OPT-movementcross
+             |      |-3_OPT
+             |      |    |       /1_OPTNON_OPT-size
+             |      |     \NON_OPT
+             |      |            \2_OPTNON_OPT-empty
+-simplemovement     |
+             |      |     /NON_OPT-wristmovement
+             |      |-4_OPT
+             |      |    |       /1_OPTNON_OPT-size
+             |      |     \NON_OPT
+             |      |            \2_OPTNON_OPT-empty
+             |      |
+             |      |-5_OPTNON_OPT-replacement
+             |      |
+             |       \6_OPTNON_OPT-HamFingerplay
+             |
+             |       /1_OPTNON_OPT-brushingcontact
+              \NON_OPT
+                     \2_OPTNON_OPT-empty
+
+         /NON_OPT-double_hand_symm
+        |
+        |-NON_OPT-double_handshape
+        |
+        |       /1_OPT-double_handposition
+        |-NON_OPT
+-two_hands      \2_OPT-empty
+        |
+        |       /1_OPT-double_handlocation
+        |-NON_OPT
+        |       \2_OPT-empty
+        |
+        |       /1_OPT-double_action
+         \NON_OPT
+                \2_OPT-empty
+
+                   /1_OPTNON_OPT-handshapeclass
+              /1_OPT
+-basichandshape    \2_OPTNON_OPT-HamNondominant
+             |
+              \2_OPTNON_OPT-thumbspecials
+
+                             /1_OPTNON_OPT-handbendandthumb
+                      /NON_OPT
+                     |       \2_OPTNON_OPT-empty
+                     |
+                     |-NON_OPTNON_OPT-HamIndexfinger
+                     |
+                     |-NON_OPTNON_OPT-HamMiddlefinger
+                     |
+                 /1_OPT           /NON_OPT-HamIndexfinger
+                |    |       /1_OPT
+                |    |-NON_OPT    \NON_OPT-fingershape
+                |    |      |
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |    |            /NON_OPT-HamMiddlefinger
+                |    |       /1_OPT
+                |     \NON_OPT    \NON_OPT-fingershape
+                |           |
+                |            \2_OPTNON_OPT-empty
+                |
+                |            /1_OPTNON_OPT-handbendandthumb
+                |     /NON_OPT
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |    |-NON_OPTNON_OPT-HamIndexfinger
+                |    |
+                |    |-NON_OPTNON_OPT-HamRingfinger
+                |    |
+                |-2_OPT           /NON_OPT-HamIndexfinger
+                |    |       /1_OPT
+                |    |-NON_OPT    \NON_OPT-fingershape
+                |    |      |
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |    |            /NON_OPT-HamRingfinger
+                |    |       /1_OPT
+                |     \NON_OPT    \NON_OPT-fingershape
+                |           |
+                |            \2_OPTNON_OPT-empty
+                |
+                |            /1_OPTNON_OPT-handbendandthumb
+                |     /NON_OPT
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |    |-NON_OPTNON_OPT-HamIndexfinger
+                |    |
+                |    |-NON_OPTNON_OPT-HamPinky
+                |    |
+                |-3_OPT           /NON_OPT-HamIndexfinger
+                |    |       /1_OPT
+                |    |-NON_OPT    \NON_OPT-fingershape
+                |    |      |
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |    |            /NON_OPT-HamPinky
+                |    |       /1_OPT
+                |     \NON_OPT    \NON_OPT-fingershape
+                |           |
+-twofingerandshape           \2_OPTNON_OPT-empty
+                |
+                |            /1_OPTNON_OPT-handbendandthumb
+                |     /NON_OPT
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |    |-NON_OPTNON_OPT-HamRingfinger
+                |    |
+                |    |-NON_OPTNON_OPT-HamMiddlefinger
+                |    |
+                |-4_OPT           /NON_OPT-HamRingfinger
+                |    |       /1_OPT
+                |    |-NON_OPT    \NON_OPT-fingershape
+                |    |      |
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |    |            /NON_OPT-HamMiddlefinger
+                |    |       /1_OPT
+                |     \NON_OPT    \NON_OPT-fingershape
+                |           |
+                |            \2_OPTNON_OPT-empty
+                |
+                |            /1_OPTNON_OPT-handbendandthumb
+                |     /NON_OPT
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |    |-NON_OPTNON_OPT-HamPinky
+                |    |
+                |    |-NON_OPTNON_OPT-HamMiddlefinger
+                |    |
+                |-5_OPT           /NON_OPT-HamPinky
+                |    |       /1_OPT
+                |    |-NON_OPT    \NON_OPT-fingershape
+                |    |      |
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |    |            /NON_OPT-HamMiddlefinger
+                |    |       /1_OPT
+                |     \NON_OPT    \NON_OPT-fingershape
+                |           |
+                |            \2_OPTNON_OPT-empty
+                |
+                |            /1_OPTNON_OPT-handbendandthumb
+                |     /NON_OPT
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |    |-NON_OPTNON_OPT-HamRingfinger
+                |    |
+                |    |-NON_OPTNON_OPT-HamPinky
+                |    |
+                 \6_OPT           /NON_OPT-HamRingfinger
+                     |       /1_OPT
+                     |-NON_OPT    \NON_OPT-fingershape
+                     |      |
+                     |       \2_OPTNON_OPT-empty
+                     |
+                     |            /NON_OPT-HamPinky
+                     |       /1_OPT
+                      \NON_OPT    \NON_OPT-fingershape
+                            |
+                             \2_OPTNON_OPT-empty
+
+               /1_OPTNON_OPT-action1_nl
+              |
+              |-2_OPTNON_OPT-paraction1t
+        /NON_OPT
+       |      |-3_OPTNON_OPT-seqnmoraction1t
+       |      |
+-action1t      \4_OPTNON_OPT-seqfusedaction1t
+       |
+       |       /1_OPTNON_OPT-repetitions
+        \NON_OPT
+               \2_OPTNON_OPT-empty
+
+              /NON_OPT-lochand
+             |
+         /1_OPT1_OPTNON_OPT-dorsalorpalmar
+        |    |
+        |     \2_OPTNON_OPT-side
+-levelhand
+        |     /NON_OPT-side
+        |    |
+         \2_OPTNON_OPT-lochand
+             |
+              \NON_OPT-dorsalorpalmar
+
+      /1_OPTNON_OPT-HamElbow
+     |
+-locarm2_OPTNON_OPT-HamElbowinside
+     |
+      \3_OPTNON_OPT-HamLowerarm
+
+                     /1_OPT-HamSymmpar
+                    |
+                    |-2_OPT-HamSymmlr
+                    |
+                    |     /NON_OPT-HamSymmpar
+                    |    |
+                    |-1_OPTNON_OPT-HamFingerstraightmod
+                    |    |
+                    |     \NON_OPT-HamLargemod
+                    |
+                    |     /NON_OPT-HamSymmpar
+                    |-1_OPT
+                    |     \NON_OPT-HamFingerstraightmod
+                    |
+              /NON_OPT    /NON_OPT-HamSymmpar
+             |      |-1_OPT
+             |      |     \NON_OPT-HamLargemod
+             |      |
+             |      |     /NON_OPT-HamSymmlr
+             |      |    |
+             |      |-1_OPTNON_OPT-HamFingerstraightmod
+             |      |    |
+             |      |     \NON_OPT-HamLargemod
+             |      |
+             |      |     /NON_OPT-HamSymmlr
+         /1_OPT     |-1_OPT
+        |    |      |     \NON_OPT-HamLargemod
+        |    |      |
+        |    |      |     /NON_OPT-HamSymmlr
+        |    |       \1_OPT
+        |    |            \NON_OPT-HamFingerstraightmod
+        |    |
+-hand_symm   |       /1_OPTNON_OPT-HamAlternatingmotion
+        |    |-NON_OPT
+        |    |       \2_OPTNON_OPT-empty
+        |    |
+        |    |       /1_OPTNON_OPT-HamNonipsi
+        |     \NON_OPT
+        |            \2_OPTNON_OPT-empty
+        |
+         \2_OPTNON_OPT-empty
+
+           /NON_OPT-levelcomplexarm
+          |
+-locationarm      /1_OPTNON_OPT-HamBehind
+          |      |
+           \NON_OPT2_OPTNON_OPT-contactbody
+                 |
+                  \3_OPT-empty
+
+                   /NON_OPT-HamFist
+                  |
+                  |       /1_OPT-empty
+                  |      |
+                  |      |-2_OPT-onefingerandshape
+                  |      |
+              /1_OPTNON_OPT3_OPT-twofingerandshape
+             |    |      |
+             |    |      |-4_OPT-threefingerandshape
+             |    |      |
+             |    |       \5_OPT-fourfingerandshape
+             |    |
+             |    |       /1_OPTNON_OPT-fingercrossing_lists
+             |     \NON_OPT
+             |            \2_OPTNON_OPT-empty
+             |
+             |     /NON_OPT-HamFlathand
+             |    |
+             |    |       /1_OPT-empty
+             |    |      |
+             |    |      |-2_OPT-onefingerandshape
+             |    |      |
+             |-2_OPTNON_OPT3_OPT-twofingerandshape
+             |    |      |
+             |    |      |-4_OPT-threefingerandshape
+             |    |      |
+             |    |       \5_OPT-fourfingerandshape
+             |    |
+             |    |       /1_OPTNON_OPT-fingercrossing_lists
+             |     \NON_OPT
+             |            \2_OPTNON_OPT-empty
+             |
+             |     /NON_OPT-HamFinger2
+             |    |
+             |    |       /1_OPT-empty
+             |-3_OPTNON_OPT
+             |    |       \2_OPT-onefingerandshape
+             |    |
+             |    |       /1_OPTNON_OPT-fingercrossing_lists
+             |     \NON_OPT
+             |            \2_OPTNON_OPT-empty
+             |
+             |     /NON_OPT-HamFinger23
+             |    |
+             |    |       /1_OPT-empty
+             |    |      |
+             |-4_OPTNON_OPT2_OPT-onefingerandshape
+             |    |      |
+             |    |       \3_OPT-twofingerandshape
+             |    |
+             |    |       /1_OPTNON_OPT-fingercrossing_lists
+             |     \NON_OPT
+             |            \2_OPTNON_OPT-empty
+             |
+             |     /NON_OPT-HamFinger23spread
+             |    |
+             |    |       /1_OPT-empty
+             |    |      |
+             |-5_OPTNON_OPT2_OPT-onefingerandshape
+             |    |      |
+             |    |       \3_OPT-twofingerandshape
+             |    |
+             |    |       /1_OPTNON_OPT-fingercrossing_lists
+             |     \NON_OPT
+             |            \2_OPTNON_OPT-empty
+             |
+             |     /NON_OPT-HamFinger2345
+             |    |
+             |    |       /1_OPT-empty
+             |    |      |
+             |    |      |-2_OPT-onefingerandshape
+             |    |      |
+             |-6_OPTNON_OPT3_OPT-twofingerandshape
+             |    |      |
+-handshapeclass   |      |-4_OPT-threefingerandshape
+             |    |      |
+             |    |       \5_OPT-fourfingerandshape
+             |    |
+             |    |       /1_OPTNON_OPT-fingercrossing_lists
+             |     \NON_OPT
+             |            \2_OPTNON_OPT-empty
+             |
+             |     /NON_OPT-HamPinch12
+             |    |
+             |    |       /1_OPT-empty
+             |    |      |
+             |-7_OPTNON_OPT2_OPT-onefingerandshape
+             |    |      |
+             |    |       \3_OPT-twofingerandshape
+             |    |
+             |    |       /1_OPTNON_OPT-fingercrossing_lists
+             |     \NON_OPT
+             |            \2_OPTNON_OPT-empty
+             |
+             |     /NON_OPT-HamPinchall
+             |    |
+             |    |       /1_OPT-empty
+             |    |      |
+             |    |      |-2_OPT-onefingerandshape
+             |    |      |
+             |-8_OPTNON_OPT3_OPT-twofingerandshape
+             |    |      |
+             |    |      |-4_OPT-threefingerandshape
+             |    |      |
+             |    |       \5_OPT-fourfingerandshape
+             |    |
+             |    |       /1_OPTNON_OPT-fingercrossing_lists
+             |     \NON_OPT
+             |            \2_OPTNON_OPT-empty
+             |
+             |     /NON_OPT-HamPinch12open
+             |    |
+             |    |       /1_OPT-empty
+             |    |      |
+             |-9_OPTNON_OPT2_OPT-onefingerandshape
+             |    |      |
+             |    |       \3_OPT-twofingerandshape
+             |    |
+             |    |       /1_OPTNON_OPT-fingercrossing_lists
+             |     \NON_OPT
+             |            \2_OPTNON_OPT-empty
+             |
+             |      /NON_OPT-HamCee12
+             |     |
+             |     |       /1_OPT-empty
+             |     |      |
+             |-10_OPTNON_OPT2_OPT-onefingerandshape
+             |     |      |
+             |     |       \3_OPT-twofingerandshape
+             |     |
+             |     |       /1_OPTNON_OPT-fingercrossing_lists
+             |      \NON_OPT
+             |             \2_OPTNON_OPT-empty
+             |
+             |-11_OPTNON_OPT-HamCeeall
+             |
+             |      /NON_OPT-HamCee12open
+             |     |
+             |     |       /1_OPT-empty
+             |     |      |
+             |     |      |-2_OPT-onefingerandshape
+             |     |      |
+              \12_OPTNON_OPT3_OPT-twofingerandshape
+                   |      |
+                   |      |-4_OPT-threefingerandshape
+                   |      |
+                   |       \5_OPT-fourfingerandshape
+                   |
+                   |       /1_OPTNON_OPT-fingercrossing_lists
+                    \NON_OPT
+                           \2_OPTNON_OPT-empty
+
+           /NON_OPT-clock
+          |
+          |                        /NON_OPT-HamClockfull
+          |                       |
+          |                   /1_OPT1_OPTNON_OPT-HamClockfull
+-revolutions                 |    |
+          |            /NON_OPT    \2_OPT-empty
+          |           |      |
+          |       /1_OPT      \2_OPT-empty
+          |      |    |
+           \NON_OPT    \NON_OPT-clock
+                 |
+                  \2_OPT-empty
+
+           /NON_OPT-HamParbegin
+          |
+          |-NON_OPT-action1_nl
+-paraction1t
+          |-NON_OPT-action1_nl
+          |
+           \NON_OPT-HamParend
+
+                /NON_OPT-movementarrow
+               |
+               |-NON_OPT-HamSeqbegin
+               |
+               |-NON_OPT-repetition
+               |
+               |-NON_OPT-movementarrow
+-movingrepetition
+               |            /1_OPTNON_OPT-size
+               |       /1_OPT
+               |-NON_OPT    \2_OPTNON_OPT-sizechangenonlinear
+               |      |
+               |       \2_OPTNON_OPT-empty
+               |
+                \NON_OPT-HamSeqend
+
+                   /1_OPTNON_OPT-HamHandback
+              /1_OPT
+-dorsalorpalmar    \2_OPTNON_OPT-HamPalm
+             |
+              \2_OPTNON_OPT-empty
+
+           /1_OPTNON_OPT-pcontact
+          |
+-contacthand2_OPTNON_OPT-ccontact
+          |
+           \3_OPTNON_OPT-contactofhand
+
+      /1_OPTNON_OPT-HamIndexfinger
+     |
+     |-2_OPTNON_OPT-HamMiddlefinger
+-finger
+     |-3_OPTNON_OPT-HamRingfinger
+     |
+      \4_OPTNON_OPT-HamPinky
+
+                /NON_OPT-levelbody
+               |
+-levelcomplexbody           /NON_OPT-HamBetween
+               |       /1_OPT
+                \NON_OPT    \NON_OPT-levelbody
+                      |
+                       \2_OPT-empty
+
+               /NON_OPT-levelarm
+              |
+-levelcomplexarm           /NON_OPT-HamBetween
+              |       /1_OPT
+               \NON_OPT    \NON_OPT-levelarm
+                     |
+                      \2_OPT-empty
+
+       /NON_OPT-ellipsedirection
+-ellipse
+      |       /1_OPTNON_OPT-size
+       \NON_OPT
+              \2_OPT-empty
+
+              /NON_OPT-HamParbegin
+             |
+             |-NON_OPT-extfidir1
+             |
+-splitextfidir2NON_OPT-HamPlus
+             |
+             |-NON_OPT-extfidir1
+             |
+              \NON_OPT-HamParend
+
+                /NON_OPT-HamParbegin
+               |
+               |-NON_OPT-basichandshape
+               |
+-double_handshapeNON_OPT-HamPlus
+               |
+               |-NON_OPT-basichandshape
+               |
+                \NON_OPT-HamParend
+
+                    /1_OPTNON_OPT-HamFingerstraightmod
+                   |
+                   |-2_OPTNON_OPT-HamFingerbendmod
+                   |
+-fingerbendingNON_OPT3_OPTNON_OPT-HamFingerhookedmod
+                   |
+                   |-4_OPTNON_OPT-HamDoublebent
+                   |
+                    \5_OPTNON_OPT-HamDoublehooked
+
+             /1_OPTNON_OPT-HamMoveu
+            |
+            |-2_OPTNON_OPT-HamMoveur
+            |
+            |-3_OPTNON_OPT-HamMover
+            |
+            |-4_OPTNON_OPT-HamMovedr
+            |
+            |-5_OPTNON_OPT-HamMoved
+            |
+            |-6_OPTNON_OPT-HamMovedl
+            |
+            |-7_OPTNON_OPT-HamMovel
+            |
+            |-8_OPTNON_OPT-HamMoveul
+            |
+            |-9_OPTNON_OPT-HamMoveol
+-movementarrow
+            |-10_OPTNON_OPT-HamMoveo
+            |
+            |-11_OPTNON_OPT-HamMoveor
+            |
+            |-12_OPTNON_OPT-HamMoveil
+            |
+            |-13_OPTNON_OPT-HamMovei
+            |
+            |-14_OPTNON_OPT-HamMoveir
+            |
+            |-15_OPTNON_OPT-HamMoveui
+            |
+            |-16_OPTNON_OPT-HamMovedi
+            |
+            |-17_OPTNON_OPT-HamMovedo
+            |
+             \18_OPTNON_OPT-HamMoveuo
+
+                /NON_OPT-movementcircle
+               |
+-circularmovement           /NON_OPT-HamBetween
+               |       /1_OPT
+                \NON_OPT    \NON_OPT-movementcircle
+                      |
+                       \2_OPT-empty
+
+   /1_OPTNON_OPT-HamArcl
+  |
+  |-2_OPTNON_OPT-HamArcu
+-arc
+  |-3_OPTNON_OPT-HamArcr
+  |
+   \4_OPTNON_OPT-HamArcd
+
+                       /1_OPT-HamSymmpar
+                      |
+                      |-2_OPT-HamSymmlr
+                      |
+                      |     /NON_OPT-HamSymmpar
+                      |    |
+                      |-1_OPTNON_OPT-HamFingerstraightmod
+                      |    |
+                      |     \NON_OPT-HamLargemod
+                      |
+                      |     /NON_OPT-HamSymmpar
+                      |-1_OPT
+                      |     \NON_OPT-HamFingerstraightmod
+                      |
+                /NON_OPT    /NON_OPT-HamSymmpar
+               |      |-1_OPT
+               |      |     \NON_OPT-HamLargemod
+               |      |
+               |      |     /NON_OPT-HamSymmlr
+               |      |    |
+               |      |-1_OPTNON_OPT-HamFingerstraightmod
+               |      |    |
+               |      |     \NON_OPT-HamLargemod
+               |      |
+               |      |     /NON_OPT-HamSymmlr
+-double_hand_symm     |-1_OPT
+               |      |     \NON_OPT-HamLargemod
+               |      |
+               |      |     /NON_OPT-HamSymmlr
+               |       \1_OPT
+               |            \NON_OPT-HamFingerstraightmod
+               |
+               |       /1_OPTNON_OPT-HamAlternatingmotion
+               |-NON_OPT
+               |       \2_OPTNON_OPT-empty
+               |
+               |       /1_OPTNON_OPT-HamNonipsi
+                \NON_OPT
+                       \2_OPTNON_OPT-empty
+
+    /1_OPT-one_hand
+-sign
+    \2_OPT-two_hands
+
+                         /NON_OPT-HamSeqbegin
+                        |
+                        |-NON_OPT-digit
+-specialfingerplaymovement
+                        |-NON_OPT-HamFingerplay
+                        |
+                         \NON_OPT-HamSeqend
+
+       /1_OPT-arc
+-arckind
+      |     /NON_OPT-arc
+       \2_OPT
+            \NON_OPT-size
+
+                         /NON_OPTNON_OPT-HamThumb
+                        |
+                    /1_OPTNON_OPTNON_OPT-fingerpart
+                   |    |
+                   |     \NON_OPTNON_OPT-HamIndexfinger
+                   |
+                   |     /NON_OPTNON_OPT-HamIndexfinger
+                   |    |
+                   |-2_OPTNON_OPTNON_OPT-fingerpart
+                   |    |
+                   |     \NON_OPTNON_OPT-HamThumb
+                   |
+                   |     /NON_OPTNON_OPT-HamIndexfinger
+                   |    |
+                   |-3_OPTNON_OPTNON_OPT-fingerpart
+                   |    |
+                   |     \NON_OPTNON_OPT-HamMiddlefinger
+                   |
+                   |     /NON_OPTNON_OPT-HamMiddlefinger
+                   |    |
+                   |-4_OPTNON_OPTNON_OPT-fingerpart
+                   |    |
+                   |     \NON_OPTNON_OPT-HamIndexfinger
+                   |
+                   |     /NON_OPTNON_OPT-HamMiddlefinger
+                   |    |
+                   |-5_OPTNON_OPTNON_OPT-fingerpart
+                   |    |
+                   |     \NON_OPTNON_OPT-HamRingfinger
+                   |
+                   |     /NON_OPTNON_OPT-HamRingfinger
+                   |    |
+                   |-6_OPTNON_OPTNON_OPT-fingerpart
+                   |    |
+                   |     \NON_OPTNON_OPT-HamMiddlefinger
+                   |
+                   |     /NON_OPTNON_OPT-HamRingfinger
+                   |    |
+                   |-7_OPTNON_OPTNON_OPT-fingerpart
+                   |    |
+                   |     \NON_OPTNON_OPT-HamPinky
+                   |
+                   |     /NON_OPTNON_OPT-HamPinky
+                   |    |
+                   |-8_OPTNON_OPTNON_OPT-fingerpart
+                   |    |
+                   |     \NON_OPTNON_OPT-HamRingfinger
+                   |
+                   |                 /NON_OPTNON_OPT-HamIndexfinger
+                   |                |
+                   |          /NON_OPTNON_OPTNON_OPT-fingerpart
+                   |         |      |
+                   |         |       \NON_OPTNON_OPT-HamThumb
+                   |     /1_OPT
+                   |    |    |       /NON_OPTNON_OPT-HamMiddlefinger
+                   |    |    |      |
+                   |    |     \NON_OPTNON_OPTNON_OPT-fingerpart
+                   |    |           |
+                   |    |            \NON_OPTNON_OPT-HamRingfinger
+                   |    |
+                   |    |            /NON_OPTNON_OPT-HamThumb
+                   |    |           |
+                   |    |     /NON_OPTNON_OPTNON_OPT-fingerpart
+                   |    |    |      |
+                   |    |    |       \NON_OPTNON_OPT-HamIndexfinger
+                   |-9_OPT2_OPT
+                   |    |    |       /NON_OPTNON_OPT-HamMiddlefinger
+                   |    |    |      |
+                   |    |     \NON_OPTNON_OPTNON_OPT-fingerpart
+-fingercrossing_lists   |           |
+                   |    |            \NON_OPTNON_OPT-HamRingfinger
+                   |    |
+                   |    |            /NON_OPTNON_OPT-HamIndexfinger
+                   |    |           |
+                   |    |     /NON_OPTNON_OPTNON_OPT-fingerpart
+                   |    |    |      |
+                   |    |    |       \NON_OPTNON_OPT-HamThumb
+                   |     \3_OPT
+                   |         |       /NON_OPTNON_OPT-HamRingfinger
+                   |         |      |
+                   |          \NON_OPTNON_OPTNON_OPT-fingerpart
+                   |                |
+                   |                 \NON_OPTNON_OPT-HamMiddlefinger
+                   |
+                   |                  /NON_OPTNON_OPT-HamThumb
+                   |                 |
+                   |           /NON_OPTNON_OPTNON_OPT-fingerpart
+                   |          |      |
+                   |          |       \NON_OPTNON_OPT-HamIndexfinger
+                   |      /1_OPT
+                   |     |    |       /NON_OPTNON_OPT-HamRingfinger
+                   |     |    |      |
+                   |     |     \NON_OPTNON_OPTNON_OPT-fingerpart
+                   |     |           |
+                   |     |            \NON_OPTNON_OPT-HamPinky
+                   |     |
+                   |     |            /NON_OPTNON_OPT-HamIndexfinger
+                   |     |           |
+                   |     |     /NON_OPTNON_OPTNON_OPT-fingerpart
+                   |     |    |      |
+                   |     |    |       \NON_OPTNON_OPT-HamThumb
+                   |-10_OPT2_OPT
+                   |     |    |       /NON_OPTNON_OPT-HamRingfinger
+                   |     |    |      |
+                   |     |     \NON_OPTNON_OPTNON_OPT-fingerpart
+                   |     |           |
+                   |     |            \NON_OPTNON_OPT-HamPinky
+                   |     |
+                   |     |            /NON_OPTNON_OPT-HamThumb
+                   |     |           |
+                   |     |     /NON_OPTNON_OPTNON_OPT-fingerpart
+                   |     |    |      |
+                   |     |    |       \NON_OPTNON_OPT-HamIndexfinger
+                   |      \3_OPT
+                   |          |       /NON_OPTNON_OPT-HamPinky
+                   |          |      |
+                   |           \NON_OPTNON_OPTNON_OPT-fingerpart
+                   |                 |
+                   |                  \NON_OPTNON_OPT-HamRingfinger
+                   |
+                   |                  /NON_OPTNON_OPT-HamMiddlefinger
+                   |                 |
+                   |           /NON_OPTNON_OPTNON_OPT-fingerpart
+                   |          |      |
+                   |          |       \NON_OPTNON_OPT-HamIndexfinger
+                   |      /1_OPT
+                   |     |    |       /NON_OPTNON_OPT-HamPinky
+                   |     |    |      |
+                   |     |     \NON_OPTNON_OPTNON_OPT-fingerpart
+                   |     |           |
+                   |     |            \NON_OPTNON_OPT-HamRingfinger
+                   |     |
+                   |     |            /NON_OPTNON_OPT-HamIndexfinger
+                   |     |           |
+                   |     |     /NON_OPTNON_OPTNON_OPT-fingerpart
+                   |     |    |      |
+                   |     |    |       \NON_OPTNON_OPT-HamMiddlefinger
+                    \11_OPT2_OPT
+                         |    |       /NON_OPTNON_OPT-HamPinky
+                         |    |      |
+                         |     \NON_OPTNON_OPTNON_OPT-fingerpart
+                         |           |
+                         |            \NON_OPTNON_OPT-HamRingfinger
+                         |
+                         |            /NON_OPTNON_OPT-HamMiddlefinger
+                         |           |
+                         |     /NON_OPTNON_OPTNON_OPT-fingerpart
+                         |    |      |
+                         |    |       \NON_OPTNON_OPT-HamIndexfinger
+                          \3_OPT
+                              |       /NON_OPTNON_OPT-HamRingfinger
+                              |      |
+                               \NON_OPTNON_OPTNON_OPT-fingerpart
+                                     |
+                                      \NON_OPTNON_OPT-HamPinky
+
+             /1_OPTNON_OPT-HamNodding
+            |
+            |-2_OPTNON_OPT-HamSwinging
+            |
+-wristmovement3_OPTNON_OPT-HamTwisting
+            |
+            |-4_OPTNON_OPT-HamStircw
+            |
+             \5_OPTNON_OPT-HamStirccw
+
+             /NON_OPT-HamParbegin
+            |
+            |       /1_OPTNON_OPT-action1t_nl
+            |-NON_OPT
+            |       \2_OPTNON_OPT-HamNomotion
+            |
+-double_actionNON_OPT-HamPlus
+            |
+            |       /1_OPTNON_OPT-action1t_nl
+            |-NON_OPT
+            |       \2_OPTNON_OPT-HamNomotion
+            |
+             \NON_OPT-HamParend
+
+            /NON_OPT-HamParbegin
+           |
+           |-NON_OPT-palmor1
+           |
+-splitpalmor2NON_OPT-HamPlus
+           |
+           |-NON_OPT-palmor1
+           |
+            \NON_OPT-HamParend
+
+          /1_OPTNON_OPT-HamHead
+         |
+         |-2_OPTNON_OPT-HamHeadtop
+         |
+         |-3_OPTNON_OPT-HamForehead
+         |
+         |-4_OPTNON_OPT-HamEyebrows
+         |
+         |-5_OPTNON_OPT-HamNose
+         |
+         |-6_OPTNON_OPT-HamNostrils
+         |
+         |-7_OPTNON_OPT-HamTongue
+         |
+         |-9_OPTNON_OPT-HamChin
+         |
+         |-10_OPTNON_OPT-HamUnderchin
+         |
+         |-11_OPTNON_OPT-HamNeck
+         |
+         |-12_OPTNON_OPT-HamShouldertop
+         |
+         |-13_OPTNON_OPT-HamShoulders
+         |
+-locbodytok14_OPTNON_OPT-HamChest
+         |
+         |-15_OPTNON_OPT-HamStomach
+         |
+         |-16_OPTNON_OPT-HamBelowstomach
+         |
+         |      /NON_OPT-HamEyes
+         |     |
+         |-17_OPT           /2_OPTNON_OPT-HamDoublebent
+         |     |       /1_OPT
+         |      \NON_OPT    \1_OPTNON_OPT-HamDoublehooked
+         |            |
+         |             \2_OPT-empty
+         |
+         |      /NON_OPT-HamLips
+         |     |
+         |-18_OPT           /2_OPTNON_OPT-HamDoublebent
+         |     |       /1_OPT
+         |      \NON_OPT    \1_OPTNON_OPT-HamDoublehooked
+         |            |
+         |             \2_OPT-empty
+         |
+         |      /NON_OPT-HamTeeth
+         |     |
+          \19_OPT           /2_OPTNON_OPT-HamDoublebent
+               |       /1_OPT
+                \NON_OPT    \1_OPTNON_OPT-HamDoublehooked
+                      |
+                       \2_OPT-empty
+
+        /1_OPTNON_OPT-HamThumboutmod
+       |
+-thumbpos2_OPTNON_OPT-HamThumbacrossmod
+       |
+        \3_OPTNON_OPT-HamThumbopenmod
+
+             /NON_OPT-locarm
+            |
+        /1_OPTNON_OPT-dorsalorpalmar
+       |    |
+       |     \NON_OPT-side
+-levelarm
+       |     /NON_OPT-side
+       |    |
+        \2_OPTNON_OPT-locarm
+            |
+             \NON_OPT-dorsalorpalmar
+
+           /1_OPTNON_OPT-pcontact
+          |
+-contactbody2_OPTNON_OPT-HamArmextended
+          |
+           \3_OPTNON_OPT-contactofhand
+
+                /NON_OPT-levelhand
+               |
+-levelcomplexhand           /NON_OPT-HamBetween
+               |       /1_OPT
+                \NON_OPT    \NON_OPT-levelhand
+                      |
+                       \2_OPT-empty
+
+          /1_OPTNON_OPT-HamIncreasing
+-sizechange
+          \2_OPTNON_OPT-HamDecreasing
+
+             /NON_OPTNON_OPT-HamFist
+            |
+            |     /NON_OPTNON_OPT-empty
+            |    |
+            |-1_OPTNON_OPTNON_OPT-HamBetween
+            |    |
+            |     \NON_OPTNON_OPT-empty
+            |
+            |     /NON_OPTNON_OPT-HamIndexfinger
+            |    |
+            |-2_OPTNON_OPTNON_OPT-HamBetween
+-thumbspecials   |
+            |     \NON_OPTNON_OPT-HamMiddlefinger
+            |
+            |     /NON_OPTNON_OPT-HamMiddlefinger
+            |    |
+            |-3_OPTNON_OPTNON_OPT-HamBetween
+            |    |
+            |     \NON_OPTNON_OPT-HamRingfinger
+            |
+            |     /NON_OPTNON_OPT-HamRingfinger
+            |    |
+             \4_OPTNON_OPTNON_OPT-HamBetween
+                 |
+                  \NON_OPTNON_OPT-HamPinky
+
+                /NON_OPT-HamFusionbegin
+               |
+               |-NON_OPT-action1_nl
+-seqfusedaction1t
+               |-NON_OPT-action1_nl
+               |
+                \NON_OPT-HamFusionend
+
+                            /1_OPTNON_OPT-repetition
+                       /1_OPT
+                      |    |     /NON_OPT-HamRepeatfromstart
+                      |     \2_OPT
+                /NON_OPT         \NON_OPT-HamRepeatfromstart
+               |      |
+               |      |     /1_OPTNON_OPT-movingrepetition
+               |       \2_OPT
+               |            \2_OPTNON_OPT-empty
+               |
+           /1_OPT      /1_OPTNON_OPT-sizechangenonlinear
+          |    |-NON_OPT
+          |    |       \2_OPTNON_OPT-empty
+          |    |
+          |    |       /1_OPTNON_OPT-HamAlternatingmotion
+          |    |      |
+          |    |      |     /NON_OPT-HamAlternatingmotion
+-repetitions    \NON_OPT2_OPT
+          |           |     \NON_OPT-HamAlternatingmotion
+          |           |
+          |            \3_OPTNON_OPT-empty
+          |
+          |     /1_OPTNON_OPT-HamAlternatingmotion
+          |    |
+          |    |     /NON_OPT-HamAlternatingmotion
+           \2_OPT2_OPT
+               |     \NON_OPT-HamAlternatingmotion
+               |
+                \3_OPTNON_OPT-empty
+
+              /NON_OPT-locbodytok
+         /1_OPT
+        |     \NON_OPT-side
+        |
+        |     /NON_OPT-locsided
+-levelbody2_OPT
+        |     \NON_OPT-side
+        |
+        |     /NON_OPT-side
+         \3_OPT
+             |       /1_OPTNON_OPT-locbodytok
+              \NON_OPT
+                     \2_OPTNON_OPT-locsided
+
+        /NON_OPT-extfidir1
+-hand_pos
+        \NON_OPT-palmor1
+
+        /1_OPTNON_OPT-HamFast
+       |
+       |-2_OPTNON_OPT-HamSlow
+       |
+-modifier3_OPTNON_OPT-HamTense
+       |
+       |-4_OPTNON_OPT-HamRest
+       |
+        \5_OPTNON_OPT-HamHalt
+
+                   /NON_OPT-splitextfidir2
+-double_handposition
+                   \NON_OPT-splitpalmor2
+
+                             /1_OPTNON_OPT-handbendandthumb
+                      /NON_OPT
+                     |       \2_OPTNON_OPT-empty
+                     |
+                 /1_OPTNON_OPTNON_OPT-HamIndexfinger
+                |    |
+                |    |            /NON_OPT-HamIndexfinger
+                |    |       /1_OPT
+                |     \NON_OPT    \NON_OPT-fingershape
+                |           |
+                |            \2_OPTNON_OPT-empty
+                |
+                |            /1_OPTNON_OPT-handbendandthumb
+                |     /NON_OPT
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |-2_OPTNON_OPTNON_OPT-HamMiddlefinger
+                |    |
+                |    |            /NON_OPT-HamMiddlefinger
+                |    |       /1_OPT
+                |     \NON_OPT    \NON_OPT-fingershape
+                |           |
+-onefingerandshape           \2_OPTNON_OPT-empty
+                |
+                |            /1_OPTNON_OPT-handbendandthumb
+                |     /NON_OPT
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                |-3_OPTNON_OPTNON_OPT-HamRingfinger
+                |    |
+                |    |            /NON_OPT-HamRingfinger
+                |    |       /1_OPT
+                |     \NON_OPT    \NON_OPT-fingershape
+                |           |
+                |            \2_OPTNON_OPT-empty
+                |
+                |            /1_OPTNON_OPT-handbendandthumb
+                |     /NON_OPT
+                |    |       \2_OPTNON_OPT-empty
+                |    |
+                 \4_OPTNON_OPTNON_OPT-HamPinky
+                     |
+                     |            /NON_OPT-HamPinky
+                     |       /1_OPT
+                      \NON_OPT    \NON_OPT-fingershape
+                            |
+                             \2_OPTNON_OPT-empty
+
+        /NON_OPT-hand_symm
+       |
+       |-NON_OPT-basichandshape
+       |
+       |       /1_OPT-hand_pos
+       |-NON_OPT
+-one_hand      \2_OPT-empty
+       |
+       |       /1_OPT-location1
+       |-NON_OPT
+       |       \2_OPT-empty
+       |
+       |       /1_OPT-action1t_nl
+        \NON_OPT
+               \2_OPT-empty
+
+    /1_OPTNON_OPT-HamSmallmod
+-size
+    \2_OPTNON_OPT-HamLargemod
+
+              /1_OPTNON_OPT-HamCircleo
+             |
+             |-2_OPTNON_OPT-HamCirclei
+             |
+             |-3_OPTNON_OPT-HamCircled
+             |
+             |-4_OPTNON_OPT-HamCircleu
+             |
+             |-5_OPTNON_OPT-HamCirclel
+             |
+             |-6_OPTNON_OPT-HamCircler
+             |
+             |-7_OPTNON_OPT-HamCircleul
+             |
+             |-8_OPTNON_OPT-HamCircledr
+             |
+             |-9_OPTNON_OPT-HamCircleur
+-movementcircle
+             |-10_OPTNON_OPT-HamCircledl
+             |
+             |-11_OPTNON_OPT-HamCircleol
+             |
+             |-12_OPTNON_OPT-HamCircleir
+             |
+             |-13_OPTNON_OPT-HamCircleor
+             |
+             |-14_OPTNON_OPT-HamCircleil
+             |
+             |-15_OPTNON_OPT-HamCircleui
+             |
+             |-16_OPTNON_OPT-HamCircledo
+             |
+             |-17_OPTNON_OPT-HamCircledi
+             |
+              \18_OPTNON_OPT-HamCircleuo
+
+                         /1_OPTNON_OPT-handbendandthumb
+                  /NON_OPT
+                 |       \2_OPTNON_OPT-empty
+                 |
+                 |-NON_OPTNON_OPT-HamIndexfinger
+                 |
+                 |-NON_OPTNON_OPT-HamMiddlefinger
+                 |
+                 |-NON_OPTNON_OPT-HamRingfinger
+                 |
+                 |-NON_OPTNON_OPT-HamPinky
+                 |
+                 |            /NON_OPT-HamIndexfinger
+                 |       /1_OPT
+                 |-NON_OPT    \NON_OPT-fingershape
+                 |      |
+-fourfingerandshape      \2_OPTNON_OPT-empty
+                 |
+                 |            /NON_OPT-HamMiddlefinger
+                 |       /1_OPT
+                 |-NON_OPT    \NON_OPT-fingershape
+                 |      |
+                 |       \2_OPTNON_OPT-empty
+                 |
+                 |            /NON_OPT-HamRingfinger
+                 |       /1_OPT
+                 |-NON_OPT    \NON_OPT-fingershape
+                 |      |
+                 |       \2_OPTNON_OPT-empty
+                 |
+                 |            /NON_OPT-HamPinky
+                 |       /1_OPT
+                  \NON_OPT    \NON_OPT-fingershape
+                        |
+                         \2_OPTNON_OPT-empty
+
+           /1_OPTNON_OPT-HamExtfingeru
+          |
+          |-2_OPTNON_OPT-HamExtfingerur
+          |
+          |-3_OPTNON_OPT-HamExtfingerr
+          |
+          |-4_OPTNON_OPT-HamExtfingerdr
+          |
+          |-5_OPTNON_OPT-HamExtfingerd
+          |
+          |-6_OPTNON_OPT-HamExtfingerdl
+          |
+          |-7_OPTNON_OPT-HamExtfingerl
+          |
+          |-8_OPTNON_OPT-HamExtfingerul
+          |
+          |-9_OPTNON_OPT-HamExtfingerol
+          |
+          |-10_OPTNON_OPT-HamExtfingero
+          |
+          |-11_OPTNON_OPT-HamExtfingeror
+          |
+          |-12_OPTNON_OPT-HamExtfingeril
+          |
+          |-13_OPTNON_OPT-HamExtfingeri
+          |
+          |-14_OPTNON_OPT-HamExtfingerir
+          |
+          |-15_OPTNON_OPT-HamExtfingerui
+          |
+          |-16_OPTNON_OPT-HamExtfingerdi
+          |
+-extfidirtok17_OPTNON_OPT-HamExtfingerdo
+          |
+          |-18_OPTNON_OPT-HamExtfingeruo
+          |
+          |      /NON_OPT-HamExtfingeruo
+          |-19_OPT
+          |      \NON_OPT-HamExtfingerol
+          |
+          |      /NON_OPT-HamExtfingeruo
+          |-20_OPT
+          |      \NON_OPT-HamExtfingeror
+          |
+          |      /NON_OPT-HamExtfingerdo
+          |-21_OPT
+          |      \NON_OPT-HamExtfingerol
+          |
+          |      /NON_OPT-HamExtfingerdo
+          |-22_OPT
+          |      \NON_OPT-HamExtfingeror
+          |
+          |      /NON_OPT-HamExtfingerui
+          |-23_OPT
+          |      \NON_OPT-HamExtfingeril
+          |
+          |      /NON_OPT-HamExtfingerui
+          |-24_OPT
+          |      \NON_OPT-HamExtfingerir
+          |
+          |      /NON_OPT-HamExtfingerdi
+          |-25_OPT
+          |      \NON_OPT-HamExtfingeril
+          |
+          |      /NON_OPT-HamExtfingerdi
+           \26_OPT
+                 \NON_OPT-HamExtfingerir
+
+             /1_OPTNON_OPT-HamZigzag
+      /NON_OPT
+     |       \2_OPTNON_OPT-HamWavy
+     |
+-zigzag2_OPTNON_OPT-size
+     |
+     |-3_OPTNON_OPT-ellipsedirection
+     |
+      \4_OPTNON_OPT-sizechangenonlinear
+
+                /1_OPTNON_OPT-HamEllipseh
+               |
+               |-2_OPTNON_OPT-HamEllipseur
+-ellipsedirection
+               |-3_OPTNON_OPT-HamEllipsev
+               |
+                \4_OPTNON_OPT-HamEllipseul
+
+        /1_OPTNON_OPT-HamWristback
+       |
+       |-2_OPTNON_OPT-HamWristpulse
+       |
+       |-3_OPTNON_OPT-HamThumbball
+       |
+-handpart4_OPTNON_OPT-HamPalm
+       |
+       |-5_OPTNON_OPT-HamHandback
+       |
+       |-6_OPTNON_OPT-HamThumbside
+       |
+        \7_OPTNON_OPT-HamPinkyside
+
+            /NON_OPT-levelcomplexbody
+           |
+-locationbody      /1_OPTNON_OPT-HamBehind
+           |      |
+            \NON_OPT2_OPTNON_OPT-contactbody
+                  |
+                   \3_OPT-empty
+
+               /NON_OPT-HamSeqbegin
+              |
+              |-NON_OPT-nmaction1t
+-seqnmoraction1t
+              |-NON_OPT-action1_nl
+              |
+               \NON_OPT-HamSeqend
+
+                     /NON_OPT-thumbpos
+                    |
+                /1_OPT1_OPT-fingerbending
+               |    |
+               |     \2_OPT-empty
+-handbendandthumb
+               |     /NON_OPT-fingerbending
+               |    |
+                \2_OPT1_OPT-thumbpos
+                    |
+                     \2_OPT-empty
+
+        /1_OPTNON_OPT-HamEar
+       |
+-locsided2_OPTNON_OPT-HamEarlobe
+       |
+        \3_OPTNON_OPT-HamCheek
+
+               /NON_OPT-HamSeqbegin
+              |
+              |-NON_OPT-HamBrushing
+-brushingcontact
+              |-NON_OPT-location1
+              |
+               \NON_OPT-HamSeqend
+
+             /NON_OPT-HamSeqbegin
+            |
+            |       /1_OPTNON_OPT-pcontact
+            |-NON_OPT
+            |       \2_OPTNON_OPT-ccontact
+-contactofhand
+            |       /1_OPTNON_OPT-levelcomplexhand
+            |-NON_OPT
+            |       \2_OPTNON_OPT-levelcomplexarm
+            |
+             \NON_OPT-HamSeqend
+
+               /NON_OPT-simplemovement
+              |
+          /1_OPT       /NON_OPT-modifier
+         |    |   /1_OPT
+         |    |  |    |   /1_OPTNON_OPT-HamLargemod
+         |     \-|     \-|
+-action1_nl      |        \2_OPT-empty
+         |       |
+         |        \2_OPT-empty
+         |
+          \2_OPTNON_OPT-specialfingerplaymovement
+
+                /NON_OPT-movementarrow
+               |
+-straightmovement           /NON_OPT-HamBetween
+               |       /1_OPT
+                \NON_OPT    \NON_OPT-movementarrow
+                      |
+                       \2_OPT-empty
+
+      /1_OPTNON_OPT-HamPalmu
+     |
+     |-2_OPTNON_OPT-HamPalmur
+     |
+     |-3_OPTNON_OPT-HamPalmr
+     |
+     |-4_OPTNON_OPT-HamPalmdr
+-palmor
+     |-5_OPTNON_OPT-HamPalmd
+     |
+     |-6_OPTNON_OPT-HamPalmdl
+     |
+     |-7_OPTNON_OPT-HamPalml
+     |
+      \8_OPTNON_OPT-HamPalmul
+
+     /1_OPTNON_OPT-HamClocku
+    |
+    |-2_OPTNON_OPT-HamClockul
+    |
+    |-3_OPTNON_OPT-HamClockl
+    |
+    |-4_OPTNON_OPT-HamClockdl
+-clock
+    |-5_OPTNON_OPT-HamClockd
+    |
+    |-6_OPTNON_OPT-HamClockdr
+    |
+    |-7_OPTNON_OPT-HamClockr
+    |
+     \8_OPTNON_OPT-HamClockur
+
+         /1_OPTNON_OPT-locationhand
+-location1
+         \2_OPTNON_OPT-locationbodyarm
+
+     /1_OPTNON_OPT-HamThumb
+-digit
+     \2_OPTNON_OPT-finger
+
+          /NON_OPT-HamSeqbegin
+         |
+         |       /1_OPTNON_OPT-levelbody
+         |-NON_OPT
+-nmaction1t      \2_OPTNON_OPT-levelarm
+         |
+         |-NON_OPT-simplemovement
+         |
+          \NON_OPT-HamSeqend
+
+                   /NON_OPT-HamParbegin
+                  |
+                  |-NON_OPT-location1
+                  |
+-double_handlocationNON_OPT-HamPlus
+                  |
+                  |-NON_OPT-location1
+                  |
+                   \NON_OPT-HamParend

@@ -1,0 +1,255 @@
+32	hamspace	0020	
+33	hamexclaim	0021	
+36	hamcomma	002C	
+35	hamfullstop	002E	
+34	hamquery	003F	
+225	hamaltbegin	007B	
+38	hammetaalt	007C	
+226	hamaltend	007D	
+50	hamfist	E000	D
+51	hamflathand	E001	E
+52	hamfinger2	E002	F
+53	hamfinger23	E003	G
+54	hamfinger23spread	E004	H
+55	hamfinger2345	E005	I
+58	hampinch12	E006	M
+59	hampinchall	E007	N
+60	hampinch12open	E008	O
+61	hamcee12	E009	P
+62	hamceeall	E00A	Q
+63	hamcee12open	E00B	R
+56	hamthumboutmod	E00C	J
+57	hamthumbacrossmod	E00D	K
+64	hamthumbopenmod	E00E	L
+65	hamfingerstraightmod	E010	A
+66	hamfingerbendmod	E011	B
+67	hamfingerhookedmod	E012	C
+69	hamdoublebent	E013	6
+70	hamdoublehooked	E014	7
+72	hamextfingeru	E020	
+73	hamextfingerur	E021	
+74	hamextfingerr	E022	
+75	hamextfingerdr	E023	
+76	hamextfingerd	E024
+77	hamextfingerdl	E025
+78	hamextfingerl	E026
+79	hamextfingerul	E027
+80	hamextfingerol	E028
+81	hamextfingero	E029
+82	hamextfingeror	E02A
+83	hamextfingeril	E02B
+84	hamextfingeri	E02C
+85	hamextfingerir	E02D
+86	hamextfingerui	E02E
+87	hamextfingerdi	E02F
+88	hamextfingerdo	E030
+89	hamextfingeruo	E031
+96	hampalmu	E038
+97	hampalmur	E039
+98	hampalmr	E03A
+99	hampalmdr	E03B
+100	hampalmd	E03C
+101	hampalmdl	E03D
+102	hampalml	E03E
+103	hampalmul	E03F
+113	hamhead	E040
+114	hamheadtop	E041
+115	hamforehead	E042
+116	hameyebrows	E043
+117	hameyes	E044
+118	hamnose	E045
+94	hamnostrils	E046
+119	hamear	E047
+93	hamearlobe	E048
+120	hamcheek	E049
+121	hamlips	E04A
+109	hamtongue	E04B
+110	hamteeth	E04C
+122	hamchin	E04D
+123	hamunderchin	E04E
+124	hamneck	E04F
+95	hamshouldertop	E050
+125	hamshoulders	E051
+126	hamchest	E052
+111	hamstomach	E053
+128	hambelowstomach	E054
+129	hamlrbeside	E058
+130	hamlrat	E059
+158	hamcoreftag	E05A
+159	hamcorefref	E05B
+112	hamneutralspace	E05F
+131	hamupperarm	E060	
+132	hamelbow	E061	
+133	hamelbowinside	E062	
+134	hamlowerarm	E063	
+135	hamwristback	E064	
+136	hamwristpulse	E065	
+137	hamthumbball	E066	
+138	hampalm	E067	
+139	hamhandback	E068	
+145	hamthumbside	E069	
+146	hampinkyside	E06A	
+140	hamthumb	E070	1
+141	hamindexfinger	E071	2
+142	hammiddlefinger	E072	3
+143	hamringfinger	E073	4
+144	hampinky	E074	5
+148	hamfingertip	E075	T	
+149	hamfingernail	E076	U	
+150	hamfingerpad	E077	V	
+151	hamfingermidjoint	E078	W	
+152	hamfingerbase	E079	X	
+153	hamfingerside	E07A	Y	
+154	hamwristtopulse	E07C		(OBSOLETE)
+155	hamwristtoback	E07D		(OBSOLETE)
+156	hamwristtothumb	E07E		(OBSOLETE)
+157	hamwristtopinky	E07F		(OBSOLETE)
+161	hammoveu	E080		
+162	hammoveur	E081		
+163	hammover	E082		
+164	hammovedr	E083		
+165	hammoved	E084		
+166	hammovedl	E085		
+167	hammovel	E086
+168	hammoveul	E087
+169	hammoveol	E088
+170	hammoveo	E089
+171	hammoveor	E08A
+172	hammoveil	E08B
+173	hammovei	E08C
+174	hammoveir	E08D
+175	hammoveui	E08E
+176	hammovedi	E08F
+177	hammovedo	E090
+178	hammoveuo	E091
+192	hamcircleo	E092
+193	hamcirclei	E093
+194	hamcircled	E094
+195	hamcircleu	E095
+196	hamcirclel	E096
+197	hamcircler	E097
+240	hamcircleul	E098
+241	hamcircledr	E099
+242	hamcircleur	E09A
+243	hamcircledl	E09B
+244	hamcircleol	E09C
+245	hamcircleir	E09D
+246	hamcircleor	E09E
+247	hamcircleil	E09F
+249	hamcircleui	E0A0
+248	hamcircledo	E0A1
+250	hamcircleuo	E0A2
+251	hamcircledi	E0A3
+189	hamfingerplay	E0A4
+227	hamnodding	E0A5
+228	hamswinging	E0A6		
+229	hamtwisting	E0A7		
+230	hamstircw	E0A8		
+231	hamstirccw	E0A9		
+104	hamreplace	E0AA		
+179	hammovecross	E0AD	    
+180	hammovex	E0AE	    
+160	hamnomotion	E0AF		
+39	hamclocku	E0B0		
+40	hamclockul	E0B1		
+41	hamclockl	E0B2		
+42	hamclockdl	E0B3		
+43	hamclockd	E0B4		
+44	hamclockdr	E0B5		
+45	hamclockr	E0B6		
+46	hamclockur	E0B7		
+47	hamclockfull	E0B8
+183	hamarcl	E0B9
+184	hamarcu	E0BA
+185	hamarcr	E0BB
+186	hamarcd	E0BC
+187	hamwavy	E0BD
+188	hamzigzag	E0BE
+220	hamellipseh	E0C0
+221	hamellipseur	E0C1
+222	hamellipsev	E0C2
+223	hamellipseul	E0C3
+198	hamincreasing	E0C4
+199	hamdecreasing	E0C5
+181	hamsmallmod	E0C6
+182	hamlargemod	E0C7
+204	hamfast	E0C8
+205	hamslow	E0C9
+206	hamtense	E0CA
+207	hamrest	E0CB
+208	hamhalt	E0CC
+200	hamclose	E0D0
+201	hamtouch	E0D1
+202	haminterlock	E0D2
+203	hamcross	E0D3
+105	hamarmextended	E0D4
+106	hambehind	E0D5
+217	hambrushing	E0D6
+209	hamrepeatfromstart	E0D8
+210	hamrepeatfromstartseveral	E0D9
+211	hamrepeatcontinue	E0DA
+212	hamrepeatcontinueseveral	E0DB
+216	hamrepeatreverse	E0DC
+215	hamalternatingmotion	E0DD	
+213	hamseqbegin	E0E0	
+214	hamseqend	E0E1	
+190	hamparbegin	E0E2	
+191	hamparend	E0E3	
+236	hamfusionbegin	E0E4	
+237	hamfusionend	E0E5	
+147	hambetween	E0E6	S
+37	hamplus	E0E7	
+48	hamsymmpar	E0E8	
+49	hamsymmlr	E0E9	
+68	hamnondominant	E0EA	
+218	hamnonipsi	E0EB	
+107	hametc	E0EC	
+108	hamorirelative	E0ED	
+224	hammime	E0F0	
+20	hamversion40	E0F1
+254	hamnbs	
+10	linefeed	
+12	pagebreak	
+13	return	
+9	tab	
+0	UNUSED	
+1	UNUSED	
+2	UNUSED	
+3	UNUSED	
+4	UNUSED	
+5	UNUSED	
+6	UNUSED	
+7	UNUSED	
+8	UNUSED	
+11	UNUSED	
+14	UNUSED
+15	UNUSED
+16	UNUSED
+17	UNUSED
+18	UNUSED
+19	UNUSED
+21	UNUSED
+22	UNUSED
+23	UNUSED
+24	UNUSED
+25	UNUSED
+26	UNUSED
+27	UNUSED
+28	UNUSED
+29	UNUSED
+30	UNUSED
+31	UNUSED
+71	UNUSED
+90	UNUSED
+91	UNUSED
+92	UNUSED
+219	UNUSED
+232	UNUSED
+233	UNUSED
+234	UNUSED
+235	UNUSED
+238	UNUSED
+239	UNUSED
+252	UNUSED
+253	UNUSED
+255	UNUSED

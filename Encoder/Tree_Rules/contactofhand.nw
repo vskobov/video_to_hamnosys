@@ -1,0 +1,1 @@
+((HamSeqbegin:1)NON_OPT:1,(((pcontact:1)NON_OPT:1)1_OPT:1,((ccontact:1)NON_OPT:1)2_OPT:1)NON_OPT:1,(((levelcomplexhand:1)NON_OPT:1)1_OPT:1,((levelcomplexarm:1)NON_OPT:1)2_OPT:1)NON_OPT:1,(HamSeqend:1)NON_OPT:1);
