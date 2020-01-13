@@ -33,18 +33,48 @@ Note:
 ### Generate the training Data
 
 ```
+python3 sigml_sign_generator.py 5 1 DATA_PATH -wrs
+
+```
+
+### Create animation frames using JASigning Software
+
+First run the reciever in the separate shell:
+```
+python3 s_reciever.py
+
+```
+
+Now in the new shell:
+
+```
+cd /jas/loc2018/JASApp
+bash ./run.sh DATA_PATH
+
+```
+
+### Extract body keypoints from the frames using OpenPose
+
+
+```
+cd /openpose
+bash ./run_o_pose.sh DATA_PATH
+
 ```
 
 ### Data preparation for the training and annotation
 
 ```
+python3 framekeys_to_ndarray.py DATA_PATH
+python3 store_h5_data.py DATA_PATH
+
 ```
 
 
 ### Train model
 
 ```
-python nn_train.py DATA_LOCATION
+python3 nn_train.py DATA_PATH
 ```
 
 ### Make Annotations
