@@ -26,18 +26,14 @@ Python packages: Install required packages by using `pip` with `requirements.txt
 pip install -r requirements.txt
 ```
 
-Note:
-
-## Quick start
-
-### Generate the training Data
+### 1 Generate the training Data
 
 ```
 python3 sigml_sign_generator.py 5 1 DATA_PATH -wrs
 
 ```
 
-### Create animation frames using JASigning Software
+### 2 Create animation frames using JASigning Software
 
 First run the reciever in the separate shell:
 ```
@@ -53,7 +49,7 @@ bash ./run.sh DATA_PATH
 
 ```
 
-### Extract body keypoints from the frames using OpenPose
+### 3 Extract body keypoints from the frames using OpenPose
 
 
 ```
@@ -62,7 +58,7 @@ bash ./run_o_pose.sh DATA_PATH
 
 ```
 
-### Data preparation for the training and annotation
+### 4 Data preparation for the training and annotation
 
 ```
 python3 framekeys_to_ndarray.py DATA_PATH
@@ -71,13 +67,19 @@ python3 store_h5_data.py DATA_PATH
 ```
 
 
-### Train model
+### 5 Train model
 
 ```
 python3 nn_train.py DATA_PATH
 ```
 
-### Make Annotations
+### 6 Make Annotations
+
+You need to redo steps 1-4 passing the pass to the data that is need to be annotated
+
+than:
 
 ```
+python3 annotate.py REAL_DATA_PATH
+
 ```
