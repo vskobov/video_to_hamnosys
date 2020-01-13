@@ -67,7 +67,7 @@ python3 store_h5_data.py DATA_PATH
 ```
 
 
-### 5 Train model
+### 5 Train the models and rebuild the tree
 
 ```
 python3 nn_train.py DATA_PATH
@@ -75,9 +75,7 @@ python3 nn_train.py DATA_PATH
 
 ### 6 Make Annotations
 
-You need to redo steps 1-4 passing the pass to the data that is need to be annotated
-
-than:
+You need to redo steps 1-4 passing the path to the data that is need to be annotated and after run:
 
 ```
 python3 annotate.py REAL_DATA_PATH
