@@ -1,4 +1,5 @@
 import datetime
+from time import sleep
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -15,7 +16,7 @@ import joblib
 import h5py
 import random, time
 import multiprocessing
-
+from tabulate import tabulate 
 
 class NoDaemonProcess(multiprocessing.Process):
     # make 'daemon' attribute always return False
@@ -425,8 +426,11 @@ def train_one_node_full(model, device, dataloader , optimizer, scheduler, testda
             epoch_base += base
             del(output,pred,loss_a,d)
         total_loss = 100. * epoch_loss/epoch_base
-        val_loss = validation_loss(model,device,testdataloader)
-        scheduler.step(val_loss)
+        if testdataloader != None:
+            val_loss = validation_loss(model,device,testdataloader)
+            scheduler.step(val_loss)
+        else:
+            scheduler.step(epoch_loss)
 
 
         #total_enc_loss = 100. * epoch_enc_loss/epoch_enc_base
@@ -461,7 +465,7 @@ def train_one_node_full(model, device, dataloader , optimizer, scheduler, testda
                     #print("Total epoch encoder loss: "+str(total_enc_loss))
                     #print('TEST: Classes: '+str(out_len)+' Av. Accuracy: '+str('%0.2f' % mean_accuracy)+'% Av. Recall: '+str('%0.2f' % mean_recall)+' Av. Precicion: '+str('%0.2f' % mean_precision)+' Av. F1_Score: '+str('%0.2f' % mean_f1_score)+' Fully_Recognized: '+str('%0.2f' % mean_fully))
                     #print("Done node training with: "+ str(epoch)+ " epochs")
-                return (out_len,None,None,None,None,None)
+                return (None,None,None,None,None,None)
 
 def quick_test(tree, data):
     print('Target :'+str(data))
@@ -802,52 +806,59 @@ def print_table_results(tree):
                 levels.append(node.level)
                 res.append( ( node.level, node.samples_per_class, node.classes, node.train_result[1] ) )
                 #print('Level : '+str(node.level)+' Samp/Class: '+str(node.samples_per_class)+' Classes: '+str(node.classes)+' Result '+str(node.train_result))
+            else:
+                res.append( ( node.level, node.samples_per_class, node.classes, None ) )
+    print('Results found',len(res))
     levels_set  = sorted(set(levels))
     del(levels)
-    tabulate = []
+    tab= []
     for level in levels_set:
-        level = ([level+1, len(list([s for s in res if s[0]==level])), Average(list([s[1] for s in res if s[0]==level])), Average(list([s[2] for s in res if s[0]==level])),Average(list([s[3] for s in res if s[0]==level]))])
-        tabulate.append(level)
+        level = ([level+1, len(list([s for s in res if s[0]==level])), Average(list([s[1] for s in res if s[0]==level])), Average(list([s[2] for s in res if s[0]==level])),Average(list([s[3] for s in res if s[0]==level and s[3] != None]))])
+        tab.append(level)
         #print(level)
-    print(tabulate(tabulate,tablefmt='latex',headers=['Tree level','SM','Avg. N/SC','Avg. SC','Avg. Valid Accuracy']))
+    print(tabulate(tab,tablefmt='latex',headers=['Tree level','SM','Avg. N/SC','Avg. SC','Avg. Valid Accuracy']))
 
 def multi_node_train(tree):
     #print('Train node: '+str(tree.number))
-    start_time = datetime.datetime.now()
-    valid_dataset = None
-    node_dataset = None
+
+    valid_dataset_ready = False
+    node_dataset_ready = False
     global lock_train_data, lock_val_data
-    while node_dataset == None:
+
+    while node_dataset_ready == False:
         if lock_train_data.value == 0:
             try:
                 lock_train_data.value = 1
                 node_dataset = H5Dataset_level(path+'train_input_keys_1d_np_'+mod_name+"_h5.hdf5",tree.opt_target)
-                train_dataloader = torch.utils.data.DataLoader(node_dataset,batch_size=BATCH_SIZE, shuffle=True, num_workers = 1)
-            except:
-                train_dataloader = None
-        else: pass
-            #  print('No Train Samples found')
-    lock_train_data.value = 0
+                if node_dataset.pool >0:
+                    train_dataloader = torch.utils.data.DataLoader(node_dataset,batch_size=BATCH_SIZE, shuffle=True, num_workers = 1)
+                else: 
+                    train_dataloader = None
+                node_dataset_ready = True
+                lock_train_data.value = 0
+            except: pass
+        #else:
+         #   sleep(random.uniform(0.05,0.03))
 
-    while valid_dataset == None:
+    while valid_dataset_ready == False:
         if lock_val_data.value == 0:
             try: 
                 lock_val_data.value = 1
                 valid_dataset = H5Dataset_level_validation(path+'test_input_keys_1d_np_'+mod_name+"_h5.hdf5", path+'rs_test_input_keys_1d_np_'+mod_name+"_h5.hdf5",tree.opt_target)
-                test_dataloader = torch.utils.data.DataLoader(valid_dataset, batch_size=1, shuffle=True, num_workers = 1)
-            except:
-                test_dataloader = None
-        else: pass
-
+                if valid_dataset.pool > 0:
+                    test_dataloader = torch.utils.data.DataLoader(valid_dataset, batch_size=1, shuffle=True, num_workers = 1)
+                else:
+                    test_dataloader = None
+                valid_dataset_ready = True
+                lock_val_data.value = 0
+            except: pass
+        #else:
+         #   sleep(random.uniform(0.05,0.03))
+    start_time = datetime.datetime.now()
                 #print('No Test Samples found')
-    lock_val_data.value = 0
-
-    if train_dataloader != None and test_dataloader != None:
+    if train_dataloader != None:
         #if :
-        if valid_dataset:
-            print('Node',tree.number,'Train smp: ',node_dataset.pool,' Valid smp : ',valid_dataset.pool)
-        else:
-            print('Node',tree.number,'Train smp: ',node_dataset.pool,' Valid smp : ',None)
+        print('Node',tree.number,'Train smp: ',node_dataset.pool,' Valid smp : ',valid_dataset.pool)
         attemts_res = []
         #print(str(i) + ' LR :'+str(LR/((10)**i)))
         model_t = Sequential(loader[2],len(tree.opt_target)).to(DEVICE,non_blocking=True)
@@ -871,6 +882,7 @@ def multi_node_train(tree):
                 train_result = r[3]
         del(attemts_res)
     else:
+        print('Node',tree.number,'NO DATA')
         model_t = Sequential(loader[2],len(tree.opt_target)).to(DEVICE,non_blocking=True)
         model_t.apply(init_weights)
         optimizer_t = torch.optim.Adam(model_t.parameters(),LR)
@@ -884,7 +896,7 @@ def multi_node_train(tree):
     tree.add_feature('model',model_t)
     tree.add_feature('scheduler',scheduler_t)
     tree.add_feature('train_result',train_result)
-    tree.add_feature('samples_per_class',int(node_dataset.pool/len(tree.opt_target)))
+    tree.add_feature('samples_per_class',int(node_dataset.pool))
     tree.add_feature('optimizer',optimizer_t)
     del(model_t,node_dataset,train_dataloader,optimizer_t)
 
@@ -926,46 +938,46 @@ loader = load_h5_data('lr_hand_conf') #'all_h_conf'
 vec = vector2sigml.v2s.Vec2sigml(np.ones_like(loader[3]))
 count_classes(Tree(vec.h_conf_tree_path,format=1))
 
-#t = Tree(vec.h_conf_tree_path,format=1)
-#prepare_for_multitrain('multi_train',t,0,loader[2],0)
+t = Tree(vec.h_conf_tree_path,format=1)
+prepare_for_multitrain('multi_train',t,0,loader[2],0)
 
-#joblib.dump(t, path+"../models/1_nn_tree_"+'multi_train'+".joblib")
-#print('Prepared')
+joblib.dump(t, path+"../models/1_nn_tree_"+'multi_train'+".joblib")
+print('Prepared')
 mod_name = 'lr_hand_conf'
 
 
-#multi_nodes = list([node for node in t.traverse("levelorder") if hasattr(node, 'opt_target')])
+multi_nodes = list([node for node in t.traverse("levelorder") if hasattr(node, 'opt_target')])
 
-#for node in t.traverse("levelorder"):
-#    if hasattr(node, 'opt_target'):
-#        for i in range(0,len(multi_nodes)):
-#            if multi_nodes[i]==node:
-#                node.add_feature('number',i)
+for node in t.traverse("levelorder"):
+    if hasattr(node, 'opt_target'):
+        for i in range(0,len(multi_nodes)):
+            if multi_nodes[i]==node:
+                node.add_feature('number',i)
 
-#joblib.dump(t, path+"../models/2_nn_tree_"+'multi_train'+".joblib")
+joblib.dump(t, path+"../models/2_nn_tree_"+'multi_train'+".joblib")
 
-#multi_nodes = list([node for node in t.traverse("levelorder") if hasattr(node, 'opt_target')])
+multi_nodes = list([node for node in t.traverse("levelorder") if hasattr(node, 'opt_target')])
 
-#print('Collected nodes :'+str(len(multi_nodes)))
+print('Collected nodes :'+str(len(multi_nodes)))
 
-#submodels_done = multiprocessing.Value('i', 0)
-#lock_train_data = multiprocessing.Value('i',0)
-#lock_val_data = multiprocessing.Value('i',0)
+submodels_done = multiprocessing.Value('i', 0)
+lock_train_data = multiprocessing.Value('i',0)
+lock_val_data = multiprocessing.Value('i',0)
 #use one less process to be a little more stable
-#p = MyPool(processes = multiprocessing.cpu_count()-1)
+p = MyPool(processes = multiprocessing.cpu_count()-1)
 #p = MyPool(processes = 9)
 
 #timing it...
-#start = time.time()
-#print('Start Training')
-#p.map(multi_node_train, multi_nodes)
+start = time.time()
+print('Start Training')
+p.map(multi_node_train, multi_nodes)
 
 #multi_node_train(multi_nodes[3])
-#p.close()
-#p.join()
-#print("Node Train Complete")
-#end = time.time()
-#print('total time (s)= ' + str(end-start))
+p.close()
+p.join()
+print("Nodes training Complete")
+end = time.time()
+print('total time (s)= ' + str(end-start))
 #joblib.dump(t, path+"../models/2_nn_tree_"+'multi_train'+".joblib")
 
 t = joblib.load(path+"../models/2_nn_tree_"+'multi_train'+".joblib",)
@@ -976,15 +988,12 @@ for node in t.traverse("levelorder"):
         node.add_feature('model',node_2.model)
         node.add_feature('level',node_2.level)
         node.add_feature('train_result',node_2.train_result)
-        node.add_feature('optimizer',node_2.optimizer)
-        node_dataset = H5Dataset_level(path+'train_input_keys_1d_np_'+mod_name+"_h5.hdf5",node_2.opt_target)
-        node.add_feature('samples_per_class',int(node_dataset.pool/len(node_2.opt_target))) #done_epochs
+        node.add_feature('samples_per_class',node_2.samples_per_class)
         node.add_feature('done_epochs',node_2.done_epochs)
-        del(node_dataset)
         print(str(node.number),end='\r')
 
 joblib.dump(t, path+"../models/3_nn_tree_"+'multi_train'+".joblib")
-#print('Done training HAND CONFIGURATION')
+print('Done training HAND CONFIGURATION')
 
 test('multi_train', loader[1])
 t = joblib.load(path+"../models/3_nn_tree_"+'multi_train'+".joblib",)
