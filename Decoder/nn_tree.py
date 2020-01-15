@@ -483,7 +483,7 @@ def prepare_for_multitrain(name_tree, tree, start_ind, input_len, level):
                 tree.add_feature('opt_target',opt_target)
                 tree.add_feature('classes',len(opt_target))
                 tree.add_feature('done_epochs',0)
-                #joblib.dump(tree.get_tree_root(), path+"../models/nn_tree_"+name_tree+".joblib")
+                #joblib.dump(tree.get_tree_root(), path+"/models/nn_tree_"+name_tree+".joblib")
                 global submodels_done
                 global submodels_total
                 submodels_done += 1
@@ -557,7 +557,7 @@ def test_walker(tree, data):
 def test(name_addition, test_loader):
     print('Testing .. ',end='\r')
     global subclasses_total
-    tree = joblib.load(path+"../models/3_nn_tree_"+name_addition+".joblib")
+    tree = joblib.load(path+"/models/3_nn_tree_"+name_addition+".joblib")
     scores = []
     for batch_idx, (test_data, target) in enumerate(test_loader):
         test_vec  = np.array(get_test_np_vector(tree,test_data))
@@ -820,7 +820,7 @@ def multi_node_train(tree):
 
     tree.done_epochs += EPOCHS
     tree.add_feature('done_training',True)
-    joblib.dump(tree, path+"../models/nodes/"+str(tree.number)+".joblib")
+    joblib.dump(tree, path+"/models/nodes/"+str(tree.number)+".joblib")
     global submodels_done
     global submodels_total
     submodels_done.value += 1
@@ -842,6 +842,16 @@ parser.add_argument('output_dest', metavar='OUTPUT_DEST', type=str, nargs=1, hel
 args = parser.parse_args()
 path = args.output_dest[0]
 
+if os.path.exists(path+'/models'):
+    pass
+else:
+    os.mkdir(path+'/models')
+if os.path.exists(path+'/models/nodes/'):
+    pass
+else:
+    os.mkdir(path+'/models/nodes/')
+
+
 print("NEURAL NETWORK TREE")
 print("EPOCHS: "+str(EPOCHS)+" DEVICE: "+str(DEVICE)+" LR: "+str(LR))
 
@@ -860,7 +870,7 @@ count_classes(Tree(vec.h_conf_tree_path,format=1))
 t = Tree(vec.h_conf_tree_path,format=1)
 prepare_for_multitrain('multi_train',t,0,loader[2],0)
 
-joblib.dump(t, path+"../models/1_nn_tree_"+'multi_train'+".joblib")
+joblib.dump(t, path+"/models/1_nn_tree_"+'multi_train'+".joblib")
 print('Prepared')
 mod_name = 'lr_hand_conf'
 
@@ -873,7 +883,7 @@ for node in t.traverse("levelorder"):
             if multi_nodes[i]==node:
                 node.add_feature('number',i)
 
-joblib.dump(t, path+"../models/2_nn_tree_"+'multi_train'+".joblib")
+joblib.dump(t, path+"/models/2_nn_tree_"+'multi_train'+".joblib")
 
 multi_nodes = list([node for node in t.traverse("levelorder") if hasattr(node, 'opt_target')])
 
@@ -882,7 +892,7 @@ print('Collected nodes :'+str(len(multi_nodes)))
 submodels_done = multiprocessing.Value('i', 0)
 lock_train_data = multiprocessing.Value('i',0)
 lock_val_data = multiprocessing.Value('i',0)
-use one less process to be a little more stable
+#use one less process to be a little more stable
 p = MyPool(processes = multiprocessing.cpu_count()-1)
 #p = MyPool(processes = 9)
 
@@ -897,13 +907,13 @@ p.join()
 print("Nodes training Complete")
 end = time.time()
 print('total time (s)= ' + str(end-start))
-joblib.dump(t, path+"../models/2_nn_tree_"+'multi_train'+".joblib")
+joblib.dump(t, path+"/models/2_nn_tree_"+'multi_train'+".joblib")
 
-t = joblib.load(path+"../models/2_nn_tree_"+'multi_train'+".joblib",)
+t = joblib.load(path+"/models/2_nn_tree_"+'multi_train'+".joblib",)
 
 for node in t.traverse("levelorder"):
     if hasattr(node, 'opt_target'):
-        node_2 = joblib.load(path+"../models/nodes/"+str(node.number)+".joblib",)
+        node_2 = joblib.load(path+"/models/nodes/"+str(node.number)+".joblib",)
         node.add_feature('model',node_2.model)
         node.add_feature('level',node_2.level)
         node.add_feature('train_result',node_2.train_result)
@@ -911,12 +921,12 @@ for node in t.traverse("levelorder"):
         node.add_feature('done_epochs',node_2.done_epochs)
         print(str(node.number),end='\r')
 
-joblib.dump(t, path+"../models/3_nn_tree_"+'multi_train'+".joblib")
+joblib.dump(t, path+"/models/3_nn_tree_"+'multi_train'+".joblib")
 print('Done training HAND CONFIGURATION tree')
 
 test('multi_train', loader[1])
-t = joblib.load(path+"../models/3_nn_tree_"+'multi_train'+".joblib",)
-#annotate("../models/3_nn_tree_"+'multi_train'+".joblib","greek_lf_test_input_keys_1d_np_lr_hand_conf_h5.hdf5",)
+t = joblib.load(path+"/models/3_nn_tree_"+'multi_train'+".joblib",)
+#annotate("/models/3_nn_tree_"+'multi_train'+".joblib","greek_lf_test_input_keys_1d_np_lr_hand_conf_h5.hdf5",)
 print_table_results(t)
 
 del(loader,vec)
