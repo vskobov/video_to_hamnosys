@@ -13,11 +13,13 @@ args = parser.parse_args()
 path = args.output_dest[0]
 
 dirs = glob.glob(path+'/*/')
-dirs2 = glob.glob('/home/Skobov_Victor/add_rs_training_10000/'+'/*/')
+dirs2 = glob.glob('add_rs_training_10000/'+'/*/')
 dirs = dirs+dirs2
 #dirs.sort()
+for i in range(5):
+    random.shuffle(dirs)
 
-VALID_SET = 1000
+VALID_SET = 6000
 print('Validation set lenght: '+str(VALID_SET))
 print('Training set lenght: '+str(len(dirs)-VALID_SET))
 
@@ -78,7 +80,7 @@ for d in range(0,len(dirs)):
         create_h5(path+"train_input_keys_1d_np_all_h_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'))
     if d > VALID_SET:
         h5py_data_appender(path+"train_input_keys_1d_np_all_h_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'),False)
-    print("Done : "+str(100. * d/len(dirs)), end='\r')
+    print("Done:",round(100. * d/len(dirs),2), end='\r')
 
 print("Saving ORIENT_ALL")
 #data_appender((dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),list(np.load(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy')),X_data_or_list,Y_data_or_list,True)
@@ -92,7 +94,7 @@ for d in range(0,len(dirs)):
         create_h5(path+"train_input_keys_1d_np_all_h_or_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'))
     if d > VALID_SET: 
         h5py_data_appender(path+"train_input_keys_1d_np_all_h_or_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'),False)
-    print("Done : "+str(100. * d/len(dirs)), end='\r')
+    print("Done:",round(100. * d/len(dirs),2), end='\r')
 
 print("Saving LOCATION_ALL")
 #data_appender((dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),list(np.load(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy')),X_data_loc_list,Y_data_loc_list,True)
@@ -106,7 +108,7 @@ for d in range(0,len(dirs)):
         create_h5(path+"train_input_keys_1d_np_all_h_loc_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'))
     if d > VALID_SET:
         h5py_data_appender(path+"train_input_keys_1d_np_all_h_loc_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'),False)
-    print("Done : "+str(100. * d/len(dirs)), end='\r')
+    print("Done:",round(100. * d/len(dirs),2), end='\r')
 """
 
 print("Saving CONF")
@@ -121,7 +123,7 @@ for d in range(0,len(dirs)):
         create_h5(path+"train_input_keys_1d_np_lr_hand_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_conf_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'))
     if d > VALID_SET:
         h5py_data_appender(path+"train_input_keys_1d_np_lr_hand_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_conf_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'),False)
-    print("Done : "+str(100. * d/len(dirs)), end='\r')
+    print("Done:",round(100. * d/len(dirs),2), end='\r')
 
 """
 print("Saving LOCATION")
@@ -136,7 +138,7 @@ for d in range(0,len(dirs)):
         create_h5(path+"train_input_keys_1d_np_lr_hand_location_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_location_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'))
     if d > VALID_SET:  
         h5py_data_appender(path+"train_input_keys_1d_np_lr_hand_location_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_location_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'),False)
-    print("Done : "+str(100. * d/len(dirs)), end='\r')
+    print("Done:",round(100. * d/len(dirs),2), end='\r')
 
 print("Saving ORIENT")
 #    data_appender((dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),list(np.load(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy')),X_data_or_list,Y_data_or_list,True)
@@ -150,5 +152,5 @@ for d in range(0,len(dirs)):
         create_h5(path+"train_input_keys_1d_np_lr_hand_orient_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'))
     if d > VALID_SET:
         h5py_data_appender(path+"train_input_keys_1d_np_lr_hand_orient_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'),False)
-    print("Done : "+str(100. * d/len(dirs)), end='\r')
+    print("Done:",round(100. * d/len(dirs),2), end='\r')
 """
