@@ -364,23 +364,15 @@ def validation_loss(model,device, dataloader):
 
 def train_one_node_full(model, device, dataloader , optimizer, scheduler, testdataloader): 
     #print('Start node training .. ')
-
     for epoch in range(1, EPOCHS + 1):
         model.train()
         epoch_loss = 0
         epoch_base = 0
-        #epoch_enc_loss = 0
-        #epoch_enc_base = 0
-        net = torch.nn.DataParallel(model)
+        net = torch.nn.DataParallel(model) #for multi GPUs
         for batch_idx, (data, target) in enumerate(dataloader):
-            #big_loss = 0
             base = 0
-            #encoder_loss = 0
-            #encoder_base = 0
             #d, tr = data.to(device,non_blocking=True), torch.tensor([(tar==1.0).nonzero() for tar in target],dtype=torch.long).to(device,non_blocking=True)
-            #d, mask = mask_samples(d)
             d, tr = data.to(device,non_blocking=True), target.to(device,non_blocking=True)
-
             output = net(d)
             #nll_t = torch.tensor([(tar==1.0).nonzero() for tar in tr],dtype=torch.long).to(device,non_blocking=True)
             #loss = nn.NLLLoss(reduction='sum')
@@ -389,10 +381,8 @@ def train_one_node_full(model, device, dataloader , optimizer, scheduler, testda
             #loss = nn.BCELoss(reduction='mean')
             loss_a = loss(output, tr)
             loss_a.backward()
-
             optimizer.step()
             optimizer.zero_grad()
-
             pred = output
 
             if len(pred.shape)>1:
@@ -409,19 +399,10 @@ def train_one_node_full(model, device, dataloader , optimizer, scheduler, testda
                         pred[p] = 1.0
                     else:
                         pred[p] = 0.0
-
-            #print(pred)
-            #big_loss += float(loss_a.detach()) #if not using float it will memory leak like craaaaazyyy
-            #encoder_loss += float(loss_en.detach())
-            #big_loss +=len(tr[0])- pred[0].eq(tr[0].view_as(pred[0])).sum().item()
             base  += len(target[0])
-            #encoder_base += len(d[0])
-            
-            #scheduler.step(loss_a)
-            print_str = "Training epoch "+str(epoch) + ' ' + '%0.2f' % (100. * batch_idx/len(dataloader))+ '%'  
+            #print_str = "Training epoch "+str(epoch) + ' ' + '%0.2f' % (100. * batch_idx/len(dataloader))+ '%'  
             #print(print_str, end='\r')
-            
-            del(print_str)
+            #del(print_str)
             epoch_loss += float(loss_a.detach())
             epoch_base += base
             del(output,pred,loss_a,d)
@@ -431,14 +412,11 @@ def train_one_node_full(model, device, dataloader , optimizer, scheduler, testda
             scheduler.step(val_loss)
         else:
             scheduler.step(epoch_loss)
-
-
         #total_enc_loss = 100. * epoch_enc_loss/epoch_enc_base
         if epoch == EPOCHS:
         #if epoch%1==0:
             if testdataloader != None:
                 #print("Total epoch loss: "+str(total_loss))
-
                 #print("Total epoch encoder loss: "+str(total_enc_loss))
                 #if epoch%1==0:
                 res = level_node_test(testdataloader,model)
@@ -448,23 +426,9 @@ def train_one_node_full(model, device, dataloader , optimizer, scheduler, testda
                 mean_precision = res[3]
                 mean_f1_score = res[4]
                 mean_fully = res[5]
-                #print(' **** '+ 'Train : ' +'%0.2f' % (100*big_loss/len(dataloader)) +' **** '+'Validation: ' + '%0.2f' % (100*val_loss/len(testdataloader))+' **** ')
-                #print(' **** '+ 'Train : ' +'%0.2f' % (100*epoch_loss/epoch_base) +' **** '+'Validation: ' + '%0.2f' % (100*val_loss/len(testdataloader))+' **** '+'\n'+'TEST: Classes: '+str(out_len)+' Av. Accuracy: '+str('%0.2f' % mean_accuracy)+'% Av. Recall: '+str('%0.2f' % mean_recall)+' Av. Precicion: '+str('%0.2f' % mean_precision)+' Av. F1_Score: '+str('%0.2f' % mean_f1_score)+' Fully_Recognized: '+str('%0.2f' % mean_fully),end='\r')
-                #if res[1] > 95: #res[1] == 100 or 
-                #if epoch == EPOCHS:
-                #print(' **** '+ 'Train : ' +'%0.2f' % (100*epoch_loss/epoch_base) +' **** '+'Validation: ' + '%0.2f' % (100*val_loss/len(testdataloader))+' **** '+'\n'+'TEST: Classes: '+str(out_len)+' Av. Accuracy: '+str('%0.2f' % mean_accuracy)+'% Av. Recall: '+str('%0.2f' % mean_recall)+' Av. Precicion: '+str('%0.2f' % mean_precision)+' Av. F1_Score: '+str('%0.2f' % mean_f1_score)+' Fully_Recognized: '+str('%0.2f' % mean_fully))
-
-                #print("Total epoch loss: "+str(total_loss))
-                #print("Total epoch encoder loss: "+str(total_enc_loss))
-                print('TEST: Classes: '+str(out_len)+' Av. Accuracy: '+str('%0.2f' % mean_accuracy)+'% Av. Recall: '+str('%0.2f' % mean_recall)+' Av. Precicion: '+str('%0.2f' % mean_precision)+' Av. F1_Score: '+str('%0.2f' % mean_f1_score)+' Fully_Recognized: '+str('%0.2f' % mean_fully))
-                #print("Done node training with: "+ str(epoch)+ " epochs")
+                print('TEST Result: Classes: '+str(out_len)+' Av. Accuracy: '+str('%0.2f' % mean_accuracy)+'% Av. Recall: '+str('%0.2f' % mean_recall)+' Av. Precicion: '+str('%0.2f' % mean_precision)+' Av. F1_Score: '+str('%0.2f' % mean_f1_score)+' Fully_Recognized: '+str('%0.2f' % mean_fully))
                 return res
             else:
-                #if epoch == EPOCHS:
-                    #print("Total epoch loss: "+str(total_loss))
-                    #print("Total epoch encoder loss: "+str(total_enc_loss))
-                    #print('TEST: Classes: '+str(out_len)+' Av. Accuracy: '+str('%0.2f' % mean_accuracy)+'% Av. Recall: '+str('%0.2f' % mean_recall)+' Av. Precicion: '+str('%0.2f' % mean_precision)+' Av. F1_Score: '+str('%0.2f' % mean_f1_score)+' Fully_Recognized: '+str('%0.2f' % mean_fully))
-                    #print("Done node training with: "+ str(epoch)+ " epochs")
                 return (None,None,None,None,None,None)
 
 def quick_test(tree, data):
@@ -613,11 +577,8 @@ def test_walker(tree, data):
 
 def test(name_addition, test_loader):
     print('Testing .. ',end='\r')
-    if transfer:
-        tree = Tree(name_addition,format=1)
-    else:
-        #tree = joblib.load(path+"../models/nn_tree_"+name_addition+".joblib")
-        tree = joblib.load(path+"../models/3_nn_tree_"+name_addition+".joblib")
+    global subclasses_total
+    tree = joblib.load(path+"../models/3_nn_tree_"+name_addition+".joblib")
     scores = []
     for batch_idx, (test_data, target) in enumerate(test_loader):
         test_vec  = np.array(get_test_np_vector(tree,test_data))
@@ -639,7 +600,7 @@ def test(name_addition, test_loader):
     mean_precision = sum(s[2] for s in scores)/len(scores)
     mean_f1_score = sum(s[3] for s in scores)/len(scores)
     mean_fully = 100.* sum(s[4] for s in scores)/len(scores)
-    print('TEST: Av. Accuracy: '+str('%0.2f' % mean_accuracy)+'% Av. Recall: '+str('%0.2f' % mean_recall)+' Av. Precicion: '+str('%0.2f' % mean_precision)+' Av. F1_Score: '+str('%0.2f' % mean_f1_score)+' Fully_Recognized: '+str('%0.2f' % mean_fully) )
+    print('Accuracy across all',subclasses_total,'Subclasses:', round(mean_accuracy), '%')
     del(tree,scores)
     return
 
@@ -775,20 +736,20 @@ def count_classes(tree):
                 choicer = True
 
         if choicer:
-                #if hasattr(tree, 'model')==True:
-                 #   if MAX_LEVEL <= tree.level:
-                        options = []
-                        
-                        for i in range(0, (len(tree.children))):
-                            if tree.children[i].name.find('OPT') != -1 and tree.children[i].name != "NON_OPT":
-                                    options.append(tree.children[i])
+            options = []
+            
+            for i in range(0, (len(tree.children))):
+                if tree.children[i].name.find('OPT') != -1 and tree.children[i].name != "NON_OPT":
+                        options.append(tree.children[i])
 
-                        if len(options)>1:
-                            global submodels_total 
-                            submodels_total += 1
-                        del(options)
-                        for o_i in range(0,len(tree.children)):
-                            count_classes(tree.children[o_i])
+            if len(options)>1:
+                global submodels_total
+                global subclasses_total
+                subclasses_total+=len(options)
+                submodels_total+=1
+            del(options)
+            for o_i in range(0,len(tree.children)):
+                count_classes(tree.children[o_i])
         else:
             for o_i in range(0,len(tree.children)):
                 count_classes(tree.children[o_i])
@@ -799,7 +760,7 @@ def print_table_results(tree):
         return int(average)
     levels = []
     res = []
-
+    n_t = 0
     for node in tree.traverse("levelorder"):
         if hasattr(node, 'train_result'):
             if node.train_result != None:
@@ -807,20 +768,21 @@ def print_table_results(tree):
                 res.append( ( node.level, node.samples_per_class, node.classes, node.train_result[1] ) )
                 #print('Level : '+str(node.level)+' Samp/Class: '+str(node.samples_per_class)+' Classes: '+str(node.classes)+' Result '+str(node.train_result))
             else:
+                n_t +=1
                 res.append( ( node.level, node.samples_per_class, node.classes, None ) )
-    print('Results found',len(res))
+    print('Results found',len(res), 'Nodes without any training:', n_t)
     levels_set  = sorted(set(levels))
     del(levels)
     tab= []
     for level in levels_set:
-        level = ([level+1, len(list([s for s in res if s[0]==level])), Average(list([s[1] for s in res if s[0]==level])), Average(list([s[2] for s in res if s[0]==level])),Average(list([s[3] for s in res if s[0]==level and s[3] != None]))])
+        level = [level+1, len(list([s for s in res if s[0]==level])), Average(list([s[1] for s in res if s[0]==level])), Average(list([s[2] for s in res if s[0]==level])),round(np.average(list([s[3] for s in res if s[0]==level and s[3] != None])))]
         tab.append(level)
-        #print(level)
+    tab.append(['All Levels', len(list(res)), round(np.average(list([s[1] for s in res]))), round(np.average(list([s[2] for s in res]))),round(np.average(list([s[3] for s in res if s[3] != None])))])
     print(tabulate(tab,tablefmt='latex',headers=['Tree level','SM','Avg. N/SC','Avg. SC','Avg. Valid Accuracy']))
 
 def multi_node_train(tree):
     #print('Train node: '+str(tree.number))
-
+    start_time = datetime.datetime.now()
     valid_dataset_ready = False
     node_dataset_ready = False
     global lock_train_data, lock_val_data
@@ -854,43 +816,20 @@ def multi_node_train(tree):
             except: pass
         #else:
          #   sleep(random.uniform(0.05,0.03))
-    start_time = datetime.datetime.now()
-                #print('No Test Samples found')
+
     if train_dataloader != None:
-        #if :
-        print('Node',tree.number,'Train smp: ',node_dataset.pool,' Valid smp : ',valid_dataset.pool)
-        attemts_res = []
-        #print(str(i) + ' LR :'+str(LR/((10)**i)))
+        print('Node number',tree.number,'Train samples per class:',node_dataset.pool,' Validation samples per class:',valid_dataset.pool)
         model_t = Sequential(loader[2],len(tree.opt_target)).to(DEVICE,non_blocking=True)
         model_t.apply(init_weights)
-        #optimizer_t = optim.Adam(model_t.parameters(),lr=LR,betas=(0.9, 0.999), eps=1e-08, weight_decay=1e-3)
         optimizer_t = torch.optim.Adam(model_t.parameters(),LR)
-        #optimizer_t = optim.SGD(model_t.parameters(),lr=LR, momentum= 0.9, nesterov=True)
         scheduler_t = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer_t, 'min')
-        #scheduler_t = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer_t, 'min',cooldown=2,patience=4)
         train_result = train_one_node_full(model_t, DEVICE, train_dataloader,optimizer_t, scheduler_t, test_dataloader)
-        attemts_res.append((model_t,optimizer_t,LR,train_result))
-        model_t = None
-        optimizer_t = None
-        train_result = None
-        max_r = list([res[3][1] for res in attemts_res])
-        for r in attemts_res:
-            if r[3][1] == max(max_r) and model_t == None:
-                #print('Best result : '+str(r[3])+' LR: '+str(r[2]))
-                model_t = r[0]
-                optimizer_t = r[1]
-                train_result = r[3]
-        del(attemts_res)
     else:
         print('Node',tree.number,'NO DATA')
         model_t = Sequential(loader[2],len(tree.opt_target)).to(DEVICE,non_blocking=True)
         model_t.apply(init_weights)
         optimizer_t = torch.optim.Adam(model_t.parameters(),LR)
-        #optimizer_t = optim.Adam(model_t.parameters(),lr=LR,betas=(0.9, 0.999), eps=1e-08, weight_decay=1e-3)
-        #optimizer_t = optim.SGD(model_t.parameters(),lr=LR, momentum= 0.9, nesterov=True)
-
         scheduler_t = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer_t, 'min')
-        #scheduler_t = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer_t, 'min',cooldown=2,patience=4)
         train_result = None
 
     tree.add_feature('model',model_t)
@@ -907,7 +846,7 @@ def multi_node_train(tree):
     global submodels_total
     submodels_done.value += 1
     time_ = datetime.datetime.now() - start_time
-    print(str(int(submodels_done.value/submodels_total*100))+'% trained '+str(submodels_done.value)+'/'+str(submodels_total)+' Hours left: '+str((time_*(submodels_total-submodels_done.value)/(multiprocessing.cpu_count()-1))))
+    print(str(int(submodels_done.value/submodels_total*100))+'% trained '+str(submodels_done.value)+'/'+str(submodels_total)+' Aprox. Time left: '+str((time_*(submodels_total-submodels_done.value)/(multiprocessing.cpu_count()-1))))
     return
 
 
@@ -932,6 +871,7 @@ print('HAND CONFIGURATION:')
 
 
 submodels_total = 0
+subclasses_total = 0
 submodels_done = 0
 
 loader = load_h5_data('lr_hand_conf') #'all_h_conf'
@@ -963,13 +903,13 @@ print('Collected nodes :'+str(len(multi_nodes)))
 submodels_done = multiprocessing.Value('i', 0)
 lock_train_data = multiprocessing.Value('i',0)
 lock_val_data = multiprocessing.Value('i',0)
-#use one less process to be a little more stable
+use one less process to be a little more stable
 p = MyPool(processes = multiprocessing.cpu_count()-1)
 #p = MyPool(processes = 9)
 
 #timing it...
 start = time.time()
-print('Start Training')
+print('Started Training with',multiprocessing.cpu_count()-1,'threads')
 p.map(multi_node_train, multi_nodes)
 
 #multi_node_train(multi_nodes[3])
@@ -978,7 +918,7 @@ p.join()
 print("Nodes training Complete")
 end = time.time()
 print('total time (s)= ' + str(end-start))
-#joblib.dump(t, path+"../models/2_nn_tree_"+'multi_train'+".joblib")
+joblib.dump(t, path+"../models/2_nn_tree_"+'multi_train'+".joblib")
 
 t = joblib.load(path+"../models/2_nn_tree_"+'multi_train'+".joblib",)
 
@@ -993,7 +933,7 @@ for node in t.traverse("levelorder"):
         print(str(node.number),end='\r')
 
 joblib.dump(t, path+"../models/3_nn_tree_"+'multi_train'+".joblib")
-print('Done training HAND CONFIGURATION')
+print('Done training HAND CONFIGURATION tree')
 
 test('multi_train', loader[1])
 t = joblib.load(path+"../models/3_nn_tree_"+'multi_train'+".joblib",)
