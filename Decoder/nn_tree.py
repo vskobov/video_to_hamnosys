@@ -35,34 +35,13 @@ class Sequential(nn.Module):
         self.input_size = input_size
         self.output_size = output_size
         self.drop = nn.Dropout(0.1)
-        #self.fc = nn.Linear(self.input_size,self.output_size)
         self.fc = nn.Linear(self.input_size,self.output_size)
-        #self.fc1 = nn.Linear(2*self.input_size,2*self.input_size)
-        #self.fc2 = nn.Linear(2*self.input_size,self.output_size)
-        
+
     def forward(self,x):
         out = self.drop(x)
-        #out = self.fc(x)
-        #out = nn.LeakyReLU(0.01)(out)
-        #out = nn.Softmax(dim=1)(out)
-        
         out = self.fc(x)
         out = nn.LeakyReLU(0.01)(out)
         out = nn.Sigmoid()(out)
-        #out = nn.ReLU()(out)
-        #out = nn.Softmax(dim=1)(out)
-    
-        #out = self.fc1(out)
-        #out = nn.LeakyReLU(0.01)(out)
-        #out = nn.ReLU()(out)
-        #out = nn.Sigmoid()(out)
-
-        #out= self.fc2(out)
-        #out = nn.ReLU()(out)
-        #out = nn.LeakyReLU(0.01)(out)
-        #out = nn.Softmax(dim=1)(out)
-        #out = nn.LeakyReLU(0.01)(out)
-
         return out
 
 class H5Dataset(data.Dataset):
@@ -941,5 +920,3 @@ t = joblib.load(path+"../models/3_nn_tree_"+'multi_train'+".joblib",)
 print_table_results(t)
 
 del(loader,vec)
-
-
