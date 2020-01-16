@@ -28,9 +28,9 @@ Python packages: Install required packages by using `pip` with `requirements.txt
 ```
 pip install -r requirements.txt
 ```
-##Quickstart
+## Quickstart
 
-##Data Generation
+## Data Generation
 ### 1 Generate the training Data
 
 ```
@@ -62,7 +62,7 @@ cd /openpose
 bash ./run_o_pose.sh DATA_PATH
 
 ```
-##Data Preparation
+## Data Preparation
 ### 4 Data preparation for the training and annotation
 
 ```
@@ -71,13 +71,13 @@ python3 store_h5_data.py DATA_PATH
 
 ```
 
-##Train Models
+## Train Models
 ### 5 Train the models and rebuild the tree
 
 ```
 python3 nn_train.py DATA_PATH
 ```
-##Produce annotations
+## Produce annotations
 ### 6 Make Annotations
 
 You need to redo steps 1-4 passing the path to the data that is need to be annotated and after run:
