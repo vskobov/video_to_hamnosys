@@ -1,4 +1,3 @@
-
 import datetime
 from time import sleep
 import torch
@@ -154,15 +153,12 @@ class H5Dataset_level(data.Dataset):
 
 class H5Dataset_level_validation(data.Dataset):
 
-    def __init__(self, file_path,file_path_2, opt_t):
+    def __init__(self, file_path, opt_t):
         super(H5Dataset_level_validation, self).__init__()
         #print('Valid'+file_path)
         h5_file = h5py.File(file_path, 'r', libver='latest')
-        h5_file_2 = h5py.File(file_path_2, 'r', libver='latest')
-        self.data = h5_file['X_data'] 
-        self.data_2 = h5_file_2['X_data']
+        self.data = h5_file['X_data']
         self.target = h5_file['Y_data']
-        self.target_2 = h5_file_2['Y_data']
         self.input_len = self.data[0].shape[0]
         self.tree_len = self.target[0].shape[0]
         self.opt_data, self.opt_target, self.pool = self.find_node_data(opt_t)
@@ -183,7 +179,7 @@ class H5Dataset_level_validation(data.Dataset):
         o_t = []
         #all_rates = 0
         count = 0
-        base = self.data.shape[0] + self.data_2.shape[0]
+        base = self.data.shape[0]
         pool = [[] for c in range(0,len(opt_t))]
 
         for i in range(0, self.data.shape[0]):
@@ -212,31 +208,6 @@ class H5Dataset_level_validation(data.Dataset):
 
             #print('Loading validation data:',(int((count/base)*100)),'%',end='\r')
 
-        for i in range(0, self.data_2.shape[0]):
-            mod_target = []
-            append = False
-            bucket = None
-            for ind in range(0,len(opt_t)):
-                #temp_ind = target[0][indicies[ind]:indicies[ind+1]].tolist()
-                temp_ind = self.target_2[i][opt_t[ind][0]:opt_t[ind][1]].tolist()
-                if any(x == 1.0 for x in temp_ind):
-                    mod_target.append(1.0)
-                    #if min(pool) == pool[ind]:
-                    #pool[ind] += 1
-                    #if append==True:
-                    #    print('triple double')
-                    append = True
-                    bucket = ind
-                else:
-                    mod_target.append(0.0)
-                del(temp_ind)
-            if append:
-                #o_d.append(self.data[i])
-                #o_t.append(np.array(mod_target))
-                pool[bucket].append((self.data_2[i],np.array(mod_target)))
-            count+=1
-            #print('Loading validation data:',(int((count/base)*100)),'%',end='\r')
-
         min_b_list = min(list([len(x) for x in pool]))
         #print(list([len(x) for x in pool]))
         
@@ -247,32 +218,7 @@ class H5Dataset_level_validation(data.Dataset):
 
         #print(list([len(x) for x in pool]), 'min', min_b_list,'data',len(o_d))
         pool = min_b_list
-            
-        #for i in range(0, self.data_2.shape[0]):
-        #    mod_target = []
-        #    append = False
-        #
-        #    for ind in range(0,len(opt_t)):
-        #        #temp_ind = target[0][indicies[ind]:indicies[ind+1]].tolist()
-        #        temp_ind = self.target_2[i][opt_t[ind][0]:opt_t[ind][1]].tolist()
-        #        if any(x == 1.0 for x in temp_ind):
-        #            mod_target.append(1.0)
-        #            append = True
-        #        else:
-        #            mod_target.append(0.0)
-        #        del(temp_ind)
-        #    if append:
-        #        o_d.append(self.data_2[i])
-        #        o_t.append(np.array(mod_target))
 
-                #all_rates += missing_rate(self,self.data[i])
-
-            #print(str(int(i/self.data.shape[0]*100))+' %', end='\r')
-        #print('Av. Missing rate : '+str(all_rates/len(o_d)))
-        #print(pool)
-        #print('Found  '+str(len(o_d))+' samples')
-        #o_d = np.stack(o_d, axis=0)
-        #o_t = np.stack(o_t, axis=0)
         return o_d, o_t, pool
 
     def __getitem__(self, index): 
@@ -769,7 +715,7 @@ def multi_node_train(tree):
 
     while node_dataset_ready == False:
         if lock_train_data.value == 0:
-            try:
+            #try:
                 lock_train_data.value = 1
                 node_dataset = H5Dataset_level(path+'train_input_keys_1d_np_'+mod_name+"_h5.hdf5",tree.opt_target)
                 if node_dataset.pool >0:
@@ -778,22 +724,22 @@ def multi_node_train(tree):
                     train_dataloader = None
                 node_dataset_ready = True
                 lock_train_data.value = 0
-            except: pass
+            #except: pass
         #else:
          #   sleep(random.uniform(0.05,0.03))
 
     while valid_dataset_ready == False:
         if lock_val_data.value == 0:
-            try: 
+            #try: 
                 lock_val_data.value = 1
-                valid_dataset = H5Dataset_level_validation(path+'test_input_keys_1d_np_'+mod_name+"_h5.hdf5", path+'rs_test_input_keys_1d_np_'+mod_name+"_h5.hdf5",tree.opt_target)
+                valid_dataset = H5Dataset_level_validation(path+'test_input_keys_1d_np_'+mod_name+"_h5.hdf5",tree.opt_target)
                 if valid_dataset.pool > 0:
                     test_dataloader = torch.utils.data.DataLoader(valid_dataset, batch_size=1, shuffle=True, num_workers = 1)
                 else:
                     test_dataloader = None
                 valid_dataset_ready = True
                 lock_val_data.value = 0
-            except: pass
+            #except: pass
         #else:
          #   sleep(random.uniform(0.05,0.03))
 
@@ -830,23 +776,104 @@ def multi_node_train(tree):
     return
 
 
+#DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+#DEVICE = torch.device("cpu")
+DEVICE = torch.device("cuda")#use that for multiprocessing
+
+LR = 0.00321
+BATCH_SIZE=1
+EPOCHS=2
+
 parser = argparse.ArgumentParser()
-parser.add_argument('model_path', metavar='MODEL_PATH', type=str, nargs=1, help='path to trained model (ex : 3_nn_multi_train.joblib)')
-parser.add_argument('real_data_path', metavar='REAL_DATA_PATH', type=str, nargs=1, help='path to HDF5 file with real data(ex : sl_corpus.hdf5)')
+parser.add_argument('output_dest', metavar='OUTPUT_DEST', type=str, nargs=1, help='Output file directory (ex : ./folder/)')
 args = parser.parse_args()
-model_path = args.model_path[0]
-data_path = args.real_data_path[0]
+path = args.output_dest[0]
 
-os.mkdir(data_path+'/annotations')
+if os.path.exists(path+'/models'):
+    pass
+else:
+    os.mkdir(path+'/models')
+if os.path.exists(path+'/models/nodes/'):
+    pass
+else:
+    os.mkdir(path+'/models/nodes/')
 
-def annotate(tree_path, data_path):
-    print('Making annotations..')
-    tree = joblib.load(path+tree_path)
-    data_file = h5py.File(path+data_path, 'r')
-    for vec in range(len(data_file['X_data'])):
-        test_vec  = np.array(get_test_np_vector(tree,torch.from_numpy(data_file['X_data'][vec]).float(),False))
-        test_v = vector2sigml.v2s.Vec2sigml(test_vec)
-        test_v.save_sigml(data_path+'/annotations'+'/pred_saved_all_nn_tree_'+str(vec)+'.txt',str(vec))
-    return
 
-annotate(model_path,data_path)
+print("NEURAL NETWORK TREE")
+print("EPOCHS: "+str(EPOCHS)+" DEVICE: "+str(DEVICE)+" LR: "+str(LR))
+
+print("\n")
+print('HAND CONFIGURATION:')
+
+
+submodels_total = 0
+subclasses_total = 0
+submodels_done = 0
+
+loader = load_h5_data('lr_hand_conf') #'all_h_conf'
+vec = vector2sigml.v2s.Vec2sigml(np.ones_like(loader[3]))
+count_classes(Tree(vec.h_conf_tree_path,format=1))
+
+t = Tree(vec.h_conf_tree_path,format=1)
+prepare_for_multitrain('multi_train',t,0,loader[2],0)
+
+joblib.dump(t, path+"/models/1_nn_tree_"+'multi_train'+".joblib")
+print('Prepared')
+mod_name = 'lr_hand_conf'
+
+
+multi_nodes = list([node for node in t.traverse("levelorder") if hasattr(node, 'opt_target')])
+
+for node in t.traverse("levelorder"):
+    if hasattr(node, 'opt_target'):
+        for i in range(0,len(multi_nodes)):
+            if multi_nodes[i]==node:
+                node.add_feature('number',i)
+
+joblib.dump(t, path+"/models/2_nn_tree_"+'multi_train'+".joblib")
+
+multi_nodes = list([node for node in t.traverse("levelorder") if hasattr(node, 'opt_target')])
+
+print('Collected nodes :'+str(len(multi_nodes)))
+
+submodels_done = multiprocessing.Value('i', 0)
+lock_train_data = multiprocessing.Value('i',0)
+lock_val_data = multiprocessing.Value('i',0)
+#use one less process to be a little more stable
+p = MyPool(processes = multiprocessing.cpu_count()-1)
+#p = MyPool(processes = 9)
+
+#timing it...
+start = time.time()
+print('Started Training with',multiprocessing.cpu_count()-1,'threads')
+p.map(multi_node_train, multi_nodes)
+
+#multi_node_train(multi_nodes[3])
+p.close()
+p.join()
+print("Nodes training Complete")
+end = time.time()
+print('total time (s)= ' + str(end-start))
+joblib.dump(t, path+"/models/2_nn_tree_"+'multi_train'+".joblib")
+
+t = joblib.load(path+"/models/2_nn_tree_"+'multi_train'+".joblib",)
+
+for node in t.traverse("levelorder"):
+    if hasattr(node, 'opt_target'):
+        node_2 = joblib.load(path+"/models/nodes/"+str(node.number)+".joblib",)
+        node.add_feature('model',node_2.model)
+        node.add_feature('level',node_2.level)
+        node.add_feature('train_result',node_2.train_result)
+        node.add_feature('samples_per_class',node_2.samples_per_class)
+        node.add_feature('done_epochs',node_2.done_epochs)
+        print(str(node.number),end='\r')
+
+joblib.dump(t, path+"/models/3_nn_tree_"+'multi_train'+".joblib")
+print('Done training HAND CONFIGURATION tree')
+
+test('multi_train', loader[1])
+t = joblib.load(path+"/models/3_nn_tree_"+'multi_train'+".joblib",)
+#annotate("/models/3_nn_tree_"+'multi_train'+".joblib","greek_lf_test_input_keys_1d_np_lr_hand_conf_h5.hdf5",)
+print_table_results(t)
+
+del(loader,vec)

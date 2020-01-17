@@ -1,1 +1,0 @@
-echo "$(ps aux | grep  JASApp | awk '{print $2}')"

@@ -13,13 +13,19 @@ args = parser.parse_args()
 path = args.output_dest[0]
 
 dirs = glob.glob(path+'/*/')
-dirs2 = glob.glob('add_rs_training_10000/'+'/*/')
-dirs = dirs+dirs2
+try:
+    dirs.remove(path+'All_Keys/')
+    dirs.remove(path+'All_Frames/')
+exept:
+    pass
+#dirs2 = glob.glob('add_rs_training_10000/'+'/*/')
+
+#dirs = dirs+dirs2
 #dirs.sort()
 for i in range(5):
     random.shuffle(dirs)
 
-VALID_SET = 6000
+VALID_SET = int(len(dirs)*0.2) #taking 20% for validation
 print('Validation set lenght: '+str(VALID_SET))
 print('Training set lenght: '+str(len(dirs)-VALID_SET))
 
@@ -71,86 +77,109 @@ def h5py_data_appender(h5py_filename, X_name, Y_name, validation = False):
 print("Saving CONF_ALL")
 #data_appender((dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),list(np.load(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy')),X_data_conf_list,Y_data_conf_list,True)
 for d in range(0,len(dirs)):
-    p = pathlib.PurePath(dirs[d])
-    if d == 0:
-        create_h5(path+"test_input_keys_1d_np_all_h_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'))
-    if d < VALID_SET and d > 0 :
-        h5py_data_appender(path+"test_input_keys_1d_np_all_h_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'),True)
-    if d==VALID_SET:
-        create_h5(path+"train_input_keys_1d_np_all_h_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'))
-    if d > VALID_SET:
-        h5py_data_appender(path+"train_input_keys_1d_np_all_h_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'),False)
-    print("Done:",round(100. * d/len(dirs),2), end='\r')
+    try:
+        p = pathlib.PurePath(dirs[d])
+        if d == 0:
+            create_h5(path+"test_input_keys_1d_np_all_h_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'))
+        if d < VALID_SET and d > 0 :
+            h5py_data_appender(path+"test_input_keys_1d_np_all_h_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'),True)
+        if d==VALID_SET:
+            create_h5(path+"train_input_keys_1d_np_all_h_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'))
+        if d > VALID_SET:
+            h5py_data_appender(path+"train_input_keys_1d_np_all_h_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'),False)
+        print("Done:",round(100. * d/len(dirs),2), end='\r')
+    except:
+        print('Missed ',dirs[d])
+
 
 print("Saving ORIENT_ALL")
 #data_appender((dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),list(np.load(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy')),X_data_or_list,Y_data_or_list,True)
 for d in range(0,len(dirs)):
-    p = pathlib.PurePath(dirs[d])
-    if d == 0:
-        create_h5(path+"test_input_keys_1d_np_all_h_or_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'))
-    if d < VALID_SET and d > 0 :
-        h5py_data_appender(path+"test_input_keys_1d_np_all_h_or_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'),True)
-    if d==VALID_SET:
-        create_h5(path+"train_input_keys_1d_np_all_h_or_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'))
-    if d > VALID_SET: 
-        h5py_data_appender(path+"train_input_keys_1d_np_all_h_or_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'),False)
-    print("Done:",round(100. * d/len(dirs),2), end='\r')
+    try:
+        p = pathlib.PurePath(dirs[d])
+        if d == 0:
+            create_h5(path+"test_input_keys_1d_np_all_h_or_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'))
+        if d < VALID_SET and d > 0 :
+            h5py_data_appender(path+"test_input_keys_1d_np_all_h_or_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'),True)
+        if d==VALID_SET:
+            create_h5(path+"train_input_keys_1d_np_all_h_or_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'))
+        if d > VALID_SET: 
+            h5py_data_appender(path+"train_input_keys_1d_np_all_h_or_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'),False)
+        print("Done:",round(100. * d/len(dirs),2), end='\r')
+    except:
+        print('Missed ',dirs[d])
+
 
 print("Saving LOCATION_ALL")
 #data_appender((dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),list(np.load(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy')),X_data_loc_list,Y_data_loc_list,True)
 for d in range(0,len(dirs)):
-    p = pathlib.PurePath(dirs[d])
-    if d == 0:
-        create_h5(path+"test_input_keys_1d_np_all_h_loc_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'))
-    if d < VALID_SET and d > 0 :
-        h5py_data_appender(path+"test_input_keys_1d_np_all_h_loc_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'),True)
-    if d==VALID_SET:
-        create_h5(path+"train_input_keys_1d_np_all_h_loc_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'))
-    if d > VALID_SET:
-        h5py_data_appender(path+"train_input_keys_1d_np_all_h_loc_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'),False)
-    print("Done:",round(100. * d/len(dirs),2), end='\r')
+    try:
+        p = pathlib.PurePath(dirs[d])
+        if d == 0:
+            create_h5(path+"test_input_keys_1d_np_all_h_loc_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'))
+        if d < VALID_SET and d > 0 :
+            h5py_data_appender(path+"test_input_keys_1d_np_all_h_loc_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'),True)
+        if d==VALID_SET:
+            create_h5(path+"train_input_keys_1d_np_all_h_loc_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'))
+        if d > VALID_SET:
+            h5py_data_appender(path+"train_input_keys_1d_np_all_h_loc_h5.hdf5",(dirs[d]+'input_keys_1d_np_all_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'),False)
+        print("Done:",round(100. * d/len(dirs),2), end='\r')
+    except:
+        print('Missed ',dirs[d])
+
+
 """
 
 print("Saving CONF")
 #data_appender((dirs[d]+'input_keys_1d_np_lr_hand_conf_'+p.parts[-1]+'.npy'),list(np.load(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy')),X_data_conf_list,Y_data_conf_list,True)
 for d in range(0,len(dirs)):
-    p = pathlib.PurePath(dirs[d])
-    if d == 0:
-        create_h5(path+"test_input_keys_1d_np_lr_hand_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_conf_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'))
-    if d < VALID_SET and d > 0 :
-        h5py_data_appender(path+"test_input_keys_1d_np_lr_hand_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_conf_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'),True)
-    if d==VALID_SET:
-        create_h5(path+"train_input_keys_1d_np_lr_hand_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_conf_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'))
-    if d > VALID_SET:
-        h5py_data_appender(path+"train_input_keys_1d_np_lr_hand_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_conf_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'),False)
-    print("Done:",round(100. * d/len(dirs),2), end='\r')
+    try:
+        p = pathlib.PurePath(dirs[d])
+        if d == 0:
+            create_h5(path+"test_input_keys_1d_np_lr_hand_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_conf_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'))
+        if d < VALID_SET and d > 0 :
+            h5py_data_appender(path+"test_input_keys_1d_np_lr_hand_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_conf_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'),True)
+        if d==VALID_SET:
+            create_h5(path+"train_input_keys_1d_np_lr_hand_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_conf_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'))
+        if d > VALID_SET:
+            h5py_data_appender(path+"train_input_keys_1d_np_lr_hand_conf_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_conf_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_conf_'+p.parts[-1]+'.npy'),False)
+        print("Done:",round(100. * d/len(dirs),2), end='\r')
+    except:
+        print('Missed ',dirs[d])
 
 """
 print("Saving LOCATION")
 #data_appender((dirs[d]+'input_keys_1d_np_lr_hand_location_'+p.parts[-1]+'.npy'),list(np.load(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy')),X_data_loc_list,Y_data_loc_list,True)
 for d in range(0,len(dirs)):
-    p = pathlib.PurePath(dirs[d])
-    if d == 0:
-        create_h5(path+"test_input_keys_1d_np_lr_hand_location_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_location_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'))
-    if d < VALID_SET and d > 0 :
-        h5py_data_appender(path+"test_input_keys_1d_np_lr_hand_location_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_location_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'),True)
-    if d==VALID_SET:
-        create_h5(path+"train_input_keys_1d_np_lr_hand_location_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_location_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'))
-    if d > VALID_SET:  
-        h5py_data_appender(path+"train_input_keys_1d_np_lr_hand_location_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_location_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'),False)
-    print("Done:",round(100. * d/len(dirs),2), end='\r')
+    try:
+        p = pathlib.PurePath(dirs[d])
+        if d == 0:
+            create_h5(path+"test_input_keys_1d_np_lr_hand_location_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_location_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'))
+        if d < VALID_SET and d > 0 :
+            h5py_data_appender(path+"test_input_keys_1d_np_lr_hand_location_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_location_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'),True)
+        if d==VALID_SET:
+            create_h5(path+"train_input_keys_1d_np_lr_hand_location_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_location_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'))
+        if d > VALID_SET:  
+            h5py_data_appender(path+"train_input_keys_1d_np_lr_hand_location_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_location_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_loc_'+p.parts[-1]+'.npy'),False)
+        print("Done:",round(100. * d/len(dirs),2), end='\r')
+    except:
+        print('Missed ',dirs[d])
 
 print("Saving ORIENT")
 #    data_appender((dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),list(np.load(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy')),X_data_or_list,Y_data_or_list,True)
 for d in range(0,len(dirs)):
-    p = pathlib.PurePath(dirs[d])
-    if d == 0:
-        create_h5(path+"test_input_keys_1d_np_lr_hand_orient_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'))
-    if d < VALID_SET and d > 0 :
-        h5py_data_appender(path+"test_input_keys_1d_np_lr_hand_orient_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'),True)
-    if d==VALID_SET:
-        create_h5(path+"train_input_keys_1d_np_lr_hand_orient_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'))
-    if d > VALID_SET:
-        h5py_data_appender(path+"train_input_keys_1d_np_lr_hand_orient_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'),False)
-    print("Done:",round(100. * d/len(dirs),2), end='\r')
+    try:
+        p = pathlib.PurePath(dirs[d])
+        if d == 0:
+            create_h5(path+"test_input_keys_1d_np_lr_hand_orient_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'))
+        if d < VALID_SET and d > 0 :
+            h5py_data_appender(path+"test_input_keys_1d_np_lr_hand_orient_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'),True)
+        if d==VALID_SET:
+            create_h5(path+"train_input_keys_1d_np_lr_hand_orient_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'))
+        if d > VALID_SET:
+            h5py_data_appender(path+"train_input_keys_1d_np_lr_hand_orient_h5.hdf5",(dirs[d]+'input_keys_1d_np_lr_hand_orient_'+p.parts[-1]+'.npy'),(dirs[d]+'input_vector_h_or_'+p.parts[-1]+'.npy'),False)
+        print("Done:",round(100. * d/len(dirs),2), end='\r')
+    except:
+        print('Missed ',dirs[d])
+
 """
