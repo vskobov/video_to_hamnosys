@@ -64,7 +64,17 @@ python3 quick_nn_tree_train YOUR_HOME_DIRECTORY/sl_annotation_research/sample_de
 ```
 after it is done it should return a result table with 0 results like this:
 ```
-
+Accuracy across all 5728 Subclasses: 0 %
+Results found 1658 Nodes without any training: 1658
+...
+...
+\begin{tabular}{lrrrr}
+\hline
+ Tree level   &   SM &   Avg. N/SC &   Avg. SC &   Avg. Valid Accuracy \\
+\hline
+ All Levels   & 1658 &           0 &         3 &                   nan \\
+\hline
+\end{tabular}
 ```
 
 ## Data Generation
