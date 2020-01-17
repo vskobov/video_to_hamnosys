@@ -11,7 +11,7 @@ Publications:()
 
 # Table of Contents
 * [Requirements](#requirements)
-* [Quickstart](#quickstart)
+* [Quick Test](#quicktest)
 * [Data Generation](#train-model)
 * [Data Preparation](#data-preparation)
 * [Train Models](#train-model)
