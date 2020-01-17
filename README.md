@@ -37,7 +37,7 @@ Login to Exp 12 machine and clone the project:
 ```
 ssh your_name@exp12.local
 
-git clone git@133.9.48.111:SKOBOV_Victor/sl_annotation_research.git
+git clone http://133.9.48.111:8082/SKOBOV_Victor/sl_annotation_research.git
 
 python3 -m pip install -r sl_annotation_research/requirements.txt --user
 ```
