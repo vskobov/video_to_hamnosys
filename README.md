@@ -26,9 +26,46 @@ Research relies heavily on external libraries and tools:
 Python packages: Install required packages by using `pip` with `requirements.txt`:
 
 ```
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt --user
 ```
-## Quickstart
+## Quickstest
+
+`YOUR_HOME_DIRECTORY` is a full path to your home directory for ex. for me it was: `/home/Skobov_Victor/`
+
+Login to Exp 12 machine and clone the project:
+
+```
+ssh your_name@exp12.local
+
+git clone git@133.9.48.111:SKOBOV_Victor/sl_annotation_research.git
+
+python3 -m pip install -r sl_annotation_research/requirements.txt --user
+```
+you can install OpenPose and use your installation, then you need to place `Decoder/run_o_pose.sh` script under `openpose` directory
+
+otherwise:
+```
+cd /home/Skobov_Victor/openpose
+
+bash ./run_o_pose.sh YOUR_HOME_DIRECTORY/sl_annotation_research/sample_dev_set_hand_conf_wrs_5/
+```
+now the body keyoints are extracted
+we will prepare them as trainig and testing data and train a simple tree with `EPOCHS=2` and  `BATCH_SIZE=1`
+training and tree rebuilding will take aprx. 1 hour
+
+```
+cd YOUR_HOME_DIRECTORY/sl_annotation_research/Decoder
+
+python3 move_extracted_keys.py YOUR_HOME_DIRECTORY/sl_annotation_research/sample_dev_set_hand_conf_wrs_5/
+python3 framekeys_to_ndarray.py YOUR_HOME_DIRECTORY/sl_annotation_research/sample_dev_set_hand_conf_wrs_5/
+python3 store_h5_data.py YOUR_HOME_DIRECTORY/sl_annotation_research/sample_dev_set_hand_conf_wrs_5/
+python3 quick_nn_tree_train YOUR_HOME_DIRECTORY/sl_annotation_research/sample_dev_set_hand_conf_wrs_5/
+
+```
+after it is done it should return a result table with 0 results like this:
+```
+
+```
 
 ## Data Generation
 ### 1 Generate the training Data
@@ -75,7 +112,6 @@ Automatic sigml data generation is possible only under **macOS**, due to JASigni
 After dowloding `jas.zip`, using [Netbeans](#https://netbeans.org/) you can open and build the JASApp
 Please follow the instructions on the [JASigning Software](http://vh.cmp.uea.ac.uk/index.php/JASigning) paige
 
-Place `Decoder/run.sh` script under `/jas/loc2018/JASApp` directory
 
 First run the reciever in the **separate** shell:
 ```
@@ -90,7 +126,7 @@ mkdir DATA_PATH/All_Frames
 mkdir DATA_PATH/All_Keys
 
 cd /jas/loc2018/JASApp
-bash ./run.sh DATA_PATH
+bash ./Decoder/run.sh DATA_PATH/ /jas/loc2018/JASApp
 
 ```
 
@@ -104,7 +140,7 @@ place `Decoder/run_o_pose.sh` script under `openpose` directory
 
 ```
 cd /openpose
-bash ./run_o_pose.sh DATA_PATH
+bash ./run_o_pose.sh DATA_PATH/
 
 ```
 ## Data Preparation
@@ -114,7 +150,7 @@ bash ./run_o_pose.sh DATA_PATH
 
 first let's move extracted keys back to the sign directories
 ```
-python3 move_extracted_keys.py DATA_PATH
+python3 move_extracted_keys.py DATA_PATH/
 
 ```
 
@@ -122,8 +158,8 @@ now let's process the keys and create `numpy` arrays as input for each sign
 and store all arrays as `HDF5` training and test files
 
 ```
-python3 framekeys_to_ndarray.py DATA_PATH
-python3 store_h5_data.py DATA_PATH
+python3 framekeys_to_ndarray.py DATA_PATH/
+python3 store_h5_data.py DATA_PATH/
 
 ```
 
@@ -131,13 +167,15 @@ python3 store_h5_data.py DATA_PATH
 
 * `DATA_PATH` - path to directory with training and test `HDF5` files
 
-after creating `HDF5` training and test files you can move them to separate directory `Sign_Data` or else
 ### 5 Train the models and rebuild the tree
 this will create `models` and `models/nodes` directory in the `DATA_PATH` where the trained tree will be stored
 
-Trained model will be placed under: `models/3_nn_multi_train.joblib`
+Trained model will be placed under: `DATA_PATH/models/3_nn_multi_train.joblib`
+
+Adjust `EPOCHS` and  `BATCH_SIZE` before training in `quick_nn_tree_train.py` file
+
 ```
-python3 nn_train.py DATA_PATH
+python3 quick_nn_tree_train.py DATA_PATH
 ```
 ## Produce annotations
 
