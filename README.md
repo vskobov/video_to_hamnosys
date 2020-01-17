@@ -184,7 +184,9 @@ python3 quick_nn_tree_train.py DATA_PATH
 * `MODEL_PATH` - path to trained model
 * `REAL_DATA_PATH` - path to `HDF5` file with real data
 
-You need to redo steps 1-4 passing the path to the data that is need to be annotated and after run:
+You need to redo steps 1-4 (disable data shuffle in `store_h5_data.py` and `VALID_SET=0`) 
+passing the path to the data that is need to be annotated and after run:
+
 
 ```
 python3 annotate.py REAL_DATA_PATH MODEL_PATH
