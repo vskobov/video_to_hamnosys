@@ -190,3 +190,13 @@ You need to redo steps 1-4 passing the path to the data that is need to be annot
 python3 annotate.py REAL_DATA_PATH MODEL_PATH
 
 ```
+
+## Repeat my experiments
+
+I highly recommend using Exp 14 
+be aware that each of the experiments takes about 30+ hours on the Exp 14
+
+```
+python3 nn_tree_research_experiment_repeat.py /itigo/../LastFrame_Train_Data/
+python3 nn_tree_research_experiment_repeat.py /itigo/../FiveFrames_Train_Data/
+```
