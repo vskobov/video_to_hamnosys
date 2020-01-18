@@ -1,0 +1,210 @@
+
+                          /NON_OPT-HamFist
+                         |
+                         |   /1_OPT-empty
+                         |  |
+                         |  |--2_OPT
+                         |  |
+                         |  |--3_OPT
+                         |-3|
+                         |  |--4_OPT
+                     /1_OPT |
+                    |    |  |                       /NON_OPTNON_OPT-HamIndexfinger
+                    |    |  |                      |
+                    |    |  |                      |-NON_OPTNON_OPT-HamMiddlefinger
+                    |    |   \5_OPTfourfingerandshape
+                    |    |                         |-NON_OPTNON_OPT-HamRingfinger
+                    |    |                         |
+                    |    |                          \NON_OPTNON_OPT-HamPinky
+                    |    |
+                    |    |   /1_OPT-NON_OPT
+                    |     \3|
+                    |        \2_OPTNON_OPT-empty
+                    |
+                    |     /NON_OPT-HamFlathand
+                    |    |
+                    |    |   /1_OPT-empty
+                    |    |  |
+                    |    |  |--2_OPT
+                    |    |  |
+                    |    |  |--3_OPT
+                    |    |-3|
+                    |    |  |--4_OPT
+                    |-2_OPT |
+                    |    |  |                       /NON_OPTNON_OPT-HamIndexfinger
+                    |    |  |                      |
+                    |    |  |                      |-NON_OPTNON_OPT-HamMiddlefinger
+                    |    |   \5_OPTfourfingerandshape
+                    |    |                         |-NON_OPTNON_OPT-HamRingfinger
+                    |    |                         |
+                    |    |                          \NON_OPTNON_OPT-HamPinky
+                    |    |
+                    |    |   /1_OPT-NON_OPT
+                    |     \3|
+                    |        \2_OPTNON_OPT-empty
+                    |
+                    |     /NON_OPT-HamFinger2
+                    |    |
+                    |    |   /1_OPT-empty
+                    |-3_OPT3|
+                    |    |   \-2_OPT
+                    |    |
+                    |    |   /1_OPT-NON_OPT
+                    |     \3|
+                    |        \2_OPTNON_OPT-empty
+                    |
+                    |     /NON_OPT-HamFinger23
+                    |    |
+                    |    |   /1_OPT-empty
+                    |    |  |
+                    |-4_OPT3|--2_OPT
+                    |    |  |
+                    |    |   \-3_OPT
+                    |    |
+                    |    |   /1_OPT-NON_OPT
+                    |     \3|
+                    |        \2_OPTNON_OPT-empty
+                    |
+                    |     /NON_OPT-HamFinger23spread
+                    |    |
+                    |    |   /1_OPT-empty
+                    |    |  |
+                    |-5_OPT3|--2_OPT
+                    |    |  |
+                    |    |   \-3_OPT
+                    |    |
+                    |    |   /1_OPT-NON_OPT
+                    |     \3|
+                    |        \2_OPTNON_OPT-empty
+                    |
+                    |     /NON_OPT-HamFinger2345
+                    |    |
+                    |    |   /1_OPT-empty
+                    |    |  |
+                    |    |  |--2_OPT
+                    |    |  |
+                    |    |  |--3_OPT
+                    |    |-3|
+                    |    |  |--4_OPT
+                    |-6_OPT |
+                    |    |  |                       /NON_OPTNON_OPT-HamIndexfinger
+      /1_OPTNON_OPT2|    |  |                      |
+     |              |    |  |                      |-NON_OPTNON_OPT-HamMiddlefinger
+     |              |    |   \5_OPTfourfingerandshape
+     |              |    |                         |-NON_OPTNON_OPT-HamRingfinger
+     |              |    |                         |
+     |              |    |                          \NON_OPTNON_OPT-HamPinky
+     |              |    |
+     |              |    |   /1_OPT-NON_OPT
+     |              |     \3|
+     |              |        \2_OPTNON_OPT-empty
+     |              |
+     |              |     /NON_OPT-HamPinch12
+     |              |    |
+     |              |    |   /1_OPT-empty
+     |              |    |  |
+     |              |-7_OPT3|--2_OPT
+     |              |    |  |
+     |              |    |   \-3_OPT
+     |              |    |
+     |              |    |   /1_OPT-NON_OPT
+     |              |     \3|
+     |              |        \2_OPTNON_OPT-empty
+     |              |
+     |              |     /NON_OPT-HamPinchall
+     |              |    |
+     |              |    |   /1_OPT-empty
+     |              |    |  |
+     |              |    |  |--2_OPT
+     |              |    |  |
+     |              |    |  |--3_OPT
+     |              |    |-3|
+     |              |    |  |--4_OPT
+     |              |-8_OPT |
+     |              |    |  |                       /NON_OPTNON_OPT-HamIndexfinger
+     |              |    |  |                      |
+     |              |    |  |                      |-NON_OPTNON_OPT-HamMiddlefinger
+     |              |    |   \5_OPTfourfingerandshape
+     |              |    |                         |-NON_OPTNON_OPT-HamRingfinger
+     |              |    |                         |
+     |              |    |                          \NON_OPTNON_OPT-HamPinky
+     |              |    |
+     |              |    |   /1_OPT-NON_OPT
+     |              |     \3|
+     |              |        \2_OPTNON_OPT-empty
+     |              |
+     |              |     /NON_OPT-HamPinch12open
+   /1|              |    |
+  |  |              |    |   /1_OPT-empty
+  |  |              |    |  |
+  |  |              |-9_OPT3|--2_OPT
+  |  |              |    |  |
+  |  |              |    |   \-3_OPT
+  |  |              |    |
+  |  |              |    |   /1_OPT-NON_OPT
+  |  |              |     \3|
+  |  |              |        \2_OPTNON_OPT-empty
+  |  |              |
+  |  |              |      /NON_OPT-HamCee12
+  |  |              |     |
+  |  |              |     |   /1_OPT-empty
+  |  |              |     |  |
+  |  |              |-10_OPT3|--2_OPT
+  |  |              |     |  |
+  |  |              |     |   \-3_OPT
+  |  |              |     |
+  |  |              |     |   /1_OPT-NON_OPT
+  |  |              |      \3|
+  |  |              |         \2_OPTNON_OPT-empty
+  |  |              |
+  |  |              |-11_OPTNON_OPT-HamCeeall
+  |  |              |
+  |  |              |      /NON_OPT-HamCee12open
+  |  |              |     |
+  |  |              |     |   /1_OPT-empty
+  |  |              |     |  |
+  |  |              |     |  |--2_OPT
+-0|  |              |     |  |
+  |  |              |     |  |--3_OPT
+  |  |              |     |-3|
+  |  |              |     |  |--4_OPT
+  |  |               \12_OPT |
+  |  |                    |  |                       /NON_OPTNON_OPT-HamIndexfinger
+  |  |                    |  |                      |
+  |  |                    |  |                      |-NON_OPTNON_OPT-HamMiddlefinger
+  |  |                    |   \5_OPTfourfingerandshape
+  |  |                    |                         |-NON_OPTNON_OPT-HamRingfinger
+  |  |                    |                         |
+  |  |                    |                          \NON_OPTNON_OPT-HamPinky
+  |  |                    |
+  |  |                    |   /1_OPT-NON_OPT
+  |  |                     \3|
+  |  |                        \2_OPTNON_OPT-empty
+  |  |
+  |   \2_OPTNON_OPT-HamNondominant
+  |
+  |               /NON_OPTNON_OPT-HamFist
+  |              |
+  |              |     /NON_OPTNON_OPT-empty
+  |              |    |
+  |              |-1_OPTNON_OPTNON_OPT-HamBetween
+  |              |    |
+  |              |     \NON_OPTNON_OPT-empty
+  |              |
+  |              |     /NON_OPTNON_OPT-HamIndexfinger
+  |              |    |
+  |              |-2_OPTNON_OPTNON_OPT-HamBetween
+   \2_OPTNON_OPT1|    |
+                 |     \NON_OPTNON_OPT-HamMiddlefinger
+                 |
+                 |     /NON_OPTNON_OPT-HamMiddlefinger
+                 |    |
+                 |-3_OPTNON_OPTNON_OPT-HamBetween
+                 |    |
+                 |     \NON_OPTNON_OPT-HamRingfinger
+                 |
+                 |     /NON_OPTNON_OPT-HamRingfinger
+                 |    |
+                  \4_OPTNON_OPTNON_OPT-HamBetween
+                      |
+                       \NON_OPTNON_OPT-HamPinky
