@@ -59,7 +59,7 @@ cd YOUR_HOME_DIRECTORY/sl_annotation_research/Decoder
 python3 move_extracted_keys.py YOUR_HOME_DIRECTORY/sl_annotation_research/sample_dev_set_hand_conf_wrs_5/
 python3 framekeys_to_ndarray.py YOUR_HOME_DIRECTORY/sl_annotation_research/sample_dev_set_hand_conf_wrs_5/
 python3 store_h5_data.py YOUR_HOME_DIRECTORY/sl_annotation_research/sample_dev_set_hand_conf_wrs_5/
-python3 quick_nn_tree_train YOUR_HOME_DIRECTORY/sl_annotation_research/sample_dev_set_hand_conf_wrs_5/
+python3 quick_nn_tree_train.py YOUR_HOME_DIRECTORY/sl_annotation_research/sample_dev_set_hand_conf_wrs_5/
 
 ```
 after it is done it should return a result table with 0 results like this:
