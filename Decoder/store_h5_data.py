@@ -16,7 +16,7 @@ dirs = glob.glob(path+'/*/')
 try:
     dirs.remove(path+'All_Keys/')
     dirs.remove(path+'All_Frames/')
-exept:
+except:
     pass
 #dirs2 = glob.glob('add_rs_training_10000/'+'/*/')
 
