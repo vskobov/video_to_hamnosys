@@ -7,7 +7,7 @@
 
 Link to [Thesis](http://133.9.48.111/files/Papers/Master_theses/Spring_2020/SKOBOV_Victor_Automatic_HamNoSys_annotation_of_video-based_Sign_Language_Corpus_using_Machine_Learning/SKOBOV_Victor_Automatic_HamNoSys_annotation_of_video-based_Sign_Language_Corpus_using_Machine_Learning.pdf)
 
-Link to [Final Presentation](http://133.9.48.111/files/Papers/Master_theses/Spring_2020/SKOBOV_Victor_Automatic_HamNoSys_annotation_of_video-based_Sign_Language_Corpus_using_Machine_Learning/Skobov_SL_final.pdf)
+Link to [Final Presentation](http://133.9.48.111/files/Papers/Master_theses/Spring_2020/SKOBOV_Victor_Automatic_HamNoSys_annotation_of_video-based_Sign_Language_Corpus_using_Machine_Learning/Skobov_SL_Final_Presentation.pdf)
 
 
 # Table of Contents
